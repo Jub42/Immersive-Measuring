@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class LaserMeter : MonoBehaviour
 {
@@ -10,12 +11,17 @@ public class LaserMeter : MonoBehaviour
     [SerializeField]
     Transform marker;
 
+    [SerializeField]
+    float distance;
 
     RaycastHit hit;
     [SerializeField]
-    float distance = 10f;
+    float rayCastDistance = 10f;
 
     int layerMask;
+
+    [SerializeField]
+    TMP_Text display;
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +32,8 @@ public class LaserMeter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        distance = Vector3.Distance(origin.position, marker.position);
+        display.text = distance.ToString();
     }
 
     void FixedUpdate()
@@ -35,7 +42,7 @@ public class LaserMeter : MonoBehaviour
         //{
         //    Ray ray = new Ray(origin.position, origin.forward);
 
-        //    if (Physics.Raycast(ray, out hit, distance, ~layerMask))
+        //    if (Physics.Raycast(ray, out hit, rayCastDistance, ~layerMask))
         //    {
         //        Debug.Log("Test");
         //        marker.position = hit.point;
@@ -45,9 +52,8 @@ public class LaserMeter : MonoBehaviour
 
         Ray ray = new Ray(origin.position, origin.forward);
 
-        if (Physics.Raycast(ray, out hit, distance, ~layerMask))
+        if (Physics.Raycast(ray, out hit, rayCastDistance, ~layerMask))
         {
-            Debug.Log("Test");
             marker.position = hit.point;
             marker.rotation = Quaternion.FromToRotation(transform.up, hit.normal) * transform.rotation;
         }

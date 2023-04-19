@@ -170,7 +170,7 @@ namespace HTC.UnityPlugin.Pointer3D
 
                     if (distance < MIN_SEGMENT_DISTANCE)
                     {
-                        Debug.LogWarning("RaySegment.distance cannot smaller than " + MIN_SEGMENT_DISTANCE + "! distance=" + distance.ToString("0.000"));
+                        Debug.LogWarning("RaySegment.rayCastDistance cannot smaller than " + MIN_SEGMENT_DISTANCE + "! rayCastDistance=" + distance.ToString("0.000"));
                         break;
                     }
 
