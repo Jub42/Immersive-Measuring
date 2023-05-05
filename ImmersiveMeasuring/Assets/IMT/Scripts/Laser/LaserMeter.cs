@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
@@ -54,6 +52,7 @@ public class LaserMeter : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, rayCastDistance, ~layerMask))
         {
+            Debug.Log(hit.triangleIndex);
             marker.position = hit.point;
             marker.rotation = Quaternion.FromToRotation(transform.up, hit.normal) * transform.rotation;
         }
