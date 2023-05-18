@@ -15,6 +15,9 @@ public class VisualMeasurementContainer : MonoBehaviour
     [SerializeField]
     GameObject visual;
 
+    [SerializeField]
+    public bool grabbed;
+
     public void SetMeasurement(Measurement measurement)
     {
         this.measurement = measurement;
