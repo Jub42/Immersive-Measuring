@@ -6,7 +6,7 @@ using MeasurementUtility;
 public class MeasurementManager : MonoBehaviour
 {
     [SerializeField]
-    List<GameObject> measurements = new List<GameObject>(); 
+    List<Measurement> measurements = new List<Measurement>(); 
 
     public void ImportFromJson()
     {
@@ -21,12 +21,15 @@ public class MeasurementManager : MonoBehaviour
     {
         // instantiate Prefab
         // add Prefab to measurements
+        Debug.Log(measurement.ToJObject().ToString());
+
+        // add measurement
     }
 
     public void RemoveMeasurementObject(GameObject obj)
     {
-        measurements.Remove(obj);
-        Destroy(obj);
+        //measurements.Remove(obj);
+        //Destroy(obj);
     }
 
     // Start is called before the first frame update

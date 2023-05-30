@@ -76,8 +76,8 @@ namespace HTC.UnityPlugin.Vive
             //lineEnd.localPosition = end;
             //labelOrigin.localPosition = tooltipRig.labelPosition;
             //labelOrigin.localRotation = Quaternion.LookRotation(labelForward, Vector3.forward);
-            //if (labelText != null) { labelText.display = data.labelText; }
-            //if (labelTextMesh != null) { labelTextMesh.display = data.labelText; }
+            //if (labelText != null) { labelText.text = data.labelText; }
+            //if (labelTextMesh != null) { labelTextMesh.text = data.labelText; }
         }
 
         public void HideRenderData()

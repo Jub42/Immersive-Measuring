@@ -86,7 +86,7 @@ public class ReticlePoser : MonoBehaviour
                 if (autoScaleReticle)
                 {
                     // Set the reticle size based on sizeInPixels, references:
-                    // https://answers.unity.com/questions/268611/with-a-perspective-camera-rayCastDistance-independent-siz.html
+                    // https://answers.unity.com/questions/268611/with-a-perspective-camera-distance-independent-siz.html
                     Vector3 a = Camera.main.WorldToScreenPoint(targetReticle.position);
                     Vector3 b = new Vector3(a.x, a.y + sizeInPixels, a.z);
                     Vector3 aa = Camera.main.ScreenToWorldPoint(a);

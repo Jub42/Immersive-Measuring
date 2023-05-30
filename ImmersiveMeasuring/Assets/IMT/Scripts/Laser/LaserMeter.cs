@@ -1,5 +1,7 @@
 using UnityEngine;
 using TMPro;
+using HTC.UnityPlugin.Vive;
+using HTC.UnityPlugin.ColliderEvent;
 
 public class LaserMeter : MonoBehaviour
 {
@@ -32,6 +34,14 @@ public class LaserMeter : MonoBehaviour
     {
         distance = Vector3.Distance(origin.position, marker.position);
         display.text = distance.ToString();
+
+        if (ViveInput.GetPress(HandRole.RightHand, ControllerButton.Trigger))
+        {
+            // Hook for Button // central definition point
+
+            // do something
+            // create new distance!
+        }
     }
 
     void FixedUpdate()

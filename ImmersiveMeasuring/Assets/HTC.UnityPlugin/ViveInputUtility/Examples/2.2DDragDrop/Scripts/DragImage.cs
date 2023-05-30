@@ -59,7 +59,7 @@ public class DragImage : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
         {
             // When raycast hit something, place the dragged image at the hit position
             // Notice that if raycast performed by GraphicRaycaster module, worldNormal is not assigned (see GraphicRaycaster for more detail)
-            rectTransform.position = raycastResult.worldPosition + raycastResult.worldNormal * 0.01f; // add a little rayCastDistance to avoid z-fighting
+            rectTransform.position = raycastResult.worldPosition + raycastResult.worldNormal * 0.01f; // add a little distance to avoid z-fighting
             rectTransform.rotation = Quaternion.LookRotation(raycastResult.worldNormal, raycastResult.gameObject.transform.up);
         }
         else
