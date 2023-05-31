@@ -1,8 +1,10 @@
+using MeasurementUtility;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
+[RequireComponent(typeof (MeasurementManager))]
 public class MGrid : MonoBehaviour
 {
     [SerializeField]
@@ -11,11 +13,10 @@ public class MGrid : MonoBehaviour
     [SerializeField]
     GameObject prefab;
 
-    [SerializeField, Min(1)]
+    [SerializeField, Range(1, 10)]
     int maxRows = 1;
-    [SerializeField, Min(1)]
+    [SerializeField, Range(1, 10)]
     int maxCols = 1;
-    [SerializeField, Min(1)]
     int maxBatchSize = 1;
 
     [SerializeField]
@@ -35,6 +36,13 @@ public class MGrid : MonoBehaviour
     {
         // adjust collider
         UpdateVisualization();
+    }
+
+    public void UpdateMeasurements()
+    {
+        Debug.Log("Update Measurements!");
+        // Mlist = GetComponent<MeasurementManager>().GetMeasurements();
+        // create gameobj list with Mlist
     }
 
     void UpdateVisualization()
@@ -78,9 +86,13 @@ public class MGrid : MonoBehaviour
         }
     }
 
-    void createPrefab()
+    void createPrefab(List<Measurement> measurements)
     {
-
+        for(int i = 0; i < measurements.Count; i++)
+        {
+            // add Prefab to list
+            
+        }
     }
 
     private void OnCollisionEnter(Collision collision)

@@ -232,7 +232,7 @@ GameObject:
   - component: {fileID: 546237728}
   - component: {fileID: 546237729}
   m_Layer: 0
-  m_Name: Tool
+  m_Name: DummyTool
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -328,7 +328,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e392fd2975fc5b44a4422ec69196a8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unityEvent:
+  OnEventSend:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 974733188}
@@ -343,6 +343,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &546237729
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -449,8 +452,10 @@ GameObject:
   m_Component:
   - component: {fileID: 974733189}
   - component: {fileID: 974733188}
+  - component: {fileID: 974733190}
+  - component: {fileID: 974733191}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -468,7 +473,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c81942493d9251b499b038206f55be3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  measurements: []
 --- !u!4 &974733189
 Transform:
   m_ObjectHideFlags: 0
@@ -485,3 +489,51 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &974733190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 974733187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68dfa7da86f3d2a4aaa9b9bd76cc7eda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  list: []
+  prefab: {fileID: 0}
+  maxRows: 4
+  maxCols: 4
+  offset: {fileID: 0}
+  spacing: 1
+--- !u!114 &974733191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 974733187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e392fd2975fc5b44a4422ec69196a8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnEventSend:
+    m_PersistentCalls:
+      m_Calls: []
+  OnEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 974733190}
+        m_TargetAssemblyTypeName: MGrid, Assembly-CSharp
+        m_MethodName: UpdateMeasurements
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

@@ -8,22 +8,17 @@ public class IMTEventHandler : MonoBehaviour
 {
 
     [SerializeField]
-    private UnityEvent<Measurement> unityEvent;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    private UnityEvent<Measurement> OnEventSend;
+    [SerializeField]
+    private UnityEvent OnEvent;
 
     public void InvokeEvent(Measurement m)
     {
-        unityEvent?.Invoke(m);
+        OnEventSend?.Invoke(m);
+    }
+
+    public void InvokeEvent()
+    {
+        OnEvent?.Invoke();
     }
 }
