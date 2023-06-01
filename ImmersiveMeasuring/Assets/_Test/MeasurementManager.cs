@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using MeasurementUtility;
 
+//TODO: Singleton
+
 [RequireComponent(typeof(IMTEventHandler))]
 public class MeasurementManager : MonoBehaviour
 {

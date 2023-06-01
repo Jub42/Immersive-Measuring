@@ -86,7 +86,8 @@ public class MGrid : MonoBehaviour
         }
     }
 
-    void createPrefab(List<Measurement> measurements)
+    // ref ObjectCreationTool
+    void CreatePrefab(List<Measurement> measurements)
     {
         for(int i = 0; i < measurements.Count; i++)
         {
