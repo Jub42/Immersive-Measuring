@@ -6,6 +6,7 @@ using UnityEngine;
 public class IMTDataCube : MonoBehaviour
 {
     // Measurement // Get/Set etc.
+    // Reference to measurement
     Measurement measurement;
 
     // visualization -> MGrid
@@ -22,7 +23,7 @@ public class IMTDataCube : MonoBehaviour
     [SerializeField]
     List<GameObject> iconList = new List<GameObject>();
 
-    public bool SetMeasurement(Measurement measurement)
+    public bool SetMeasurement(ref Measurement measurement)
     {
         if (!isLocked)
         {
@@ -35,9 +36,11 @@ public class IMTDataCube : MonoBehaviour
             return false;
         }     
     }
-    public bool GetMeasurement(out Measurement measurement)
+
+    //TODO:
+    public bool GetMeasurementID(ref Measurement measurement) // Measurement is not assignable
     {
-        if (isLocked)
+        if (!isLocked)
         {
             measurement = this.measurement;
             return true;
@@ -46,10 +49,18 @@ public class IMTDataCube : MonoBehaviour
         {
             //TODO:
             // Empty Measurement
-            measurement= this.measurement;
+            // evtl: null
+            measurement = new EmptyMeasurement();
             return false;
         }
     }
+    public Measurement GetMeasurement()
+    {
+        return measurement;
+    }
+
+
+    //TODO: Destroy // see: Manager
 
     // Start is called before the first frame update
     void Start()

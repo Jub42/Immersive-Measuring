@@ -1,12 +1,25 @@
 using MeasurementUtility;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 [RequireComponent(typeof (MeasurementManager))]
 public class MGrid : MonoBehaviour
 {
+
+
+    private class Container
+    {
+        int i;
+        GameObject obj;
+
+        Container(int i, GameObject obj)
+        {
+            this.i = i;
+            this.obj = obj;
+        }
+    }
+
     [SerializeField]
     List<GameObject> list;
 

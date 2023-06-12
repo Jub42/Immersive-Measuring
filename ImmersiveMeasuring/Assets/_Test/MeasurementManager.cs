@@ -8,8 +8,11 @@ using MeasurementUtility;
 [RequireComponent(typeof(IMTEventHandler))]
 public class MeasurementManager : MonoBehaviour
 {
-    [SerializeField]
-    List<Measurement> measurements = new List<Measurement>(); 
+    // private List<Measurement> measurements = new List<Measurement>(); 
+
+    //public List<Measurement> Measurements{get { return measurements; }}
+
+    public IMTList<Measurement> measurements = new IMTList<Measurement>();
 
     public void ImportFromJson()
     {
@@ -22,6 +25,8 @@ public class MeasurementManager : MonoBehaviour
         // export to path as json
     }
 
+    // GetInfo()
+
     public void CreateMeasurementObject(Measurement measurement)
     {
         // instantiate Prefab
@@ -29,14 +34,15 @@ public class MeasurementManager : MonoBehaviour
         Debug.Log(measurement.ToJObject().ToString());
 
         // add measurement
+        measurements.AddToList(measurement);
 
         OnMeasurementsChange();
     }
 
-    public void RemoveMeasurementObject(GameObject obj)
+    public void RemoveMeasurementObject(int i, Measurement measurement)
     {
-        //measurements.Remove(obj);
-        //Destroy(obj);
+        Debug.Log("Delete: " + measurement.ToJObject().ToString());
+        measurements.RemoveFromList(i, measurement);
 
         OnMeasurementsChange();
     }
@@ -57,5 +63,7 @@ public class MeasurementManager : MonoBehaviour
     {
         // if(visualize) update list
         // else hide?
+
+        Debug.Log(measurements.Count);
     }
 }

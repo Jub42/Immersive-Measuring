@@ -8,13 +8,13 @@ public class IMTEventHandler : MonoBehaviour
 {
 
     [SerializeField]
-    private UnityEvent<Measurement> OnEventSend;
+    private UnityEvent<Measurement> OnEventSendMeasurement;
     [SerializeField]
     private UnityEvent OnEvent;
 
     public void InvokeEvent(Measurement m)
     {
-        OnEventSend?.Invoke(m);
+        OnEventSendMeasurement?.Invoke(m);
     }
 
     public void InvokeEvent()
