@@ -2,6 +2,7 @@ using MeasurementUtility;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ReferenceTest : MonoBehaviour
 {
@@ -19,12 +20,19 @@ public class ReferenceTest : MonoBehaviour
     void Start()
     {
         mList = new IMTList<int>(list);
-        Debug.Log(mList.List);
+        Debug.Log(mList.GetTList());
+
+        Measurement m;
+
+        GetComponent<IMTDataCube>().GetMeasurementID(out m);
+
+        Debug.Log(m.ToJson());
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }
+

@@ -37,8 +37,7 @@ public class IMTDataCube : MonoBehaviour
         }     
     }
 
-    //TODO:
-    public bool GetMeasurementID(ref Measurement measurement) // Measurement is not assignable
+    public bool GetMeasurementID(out Measurement measurement)
     {
         if (!isLocked)
         {
