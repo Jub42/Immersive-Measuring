@@ -7,11 +7,11 @@ public class GameEventGeneric<T> : ScriptableObject
 {
     List<GameEventListenerGeneric<T>> listeners = new List<GameEventListenerGeneric<T>>();
 
-    public void TriggerEvent()
+    public void TriggerEvent(T t)
     {
         for (int i = 0; i < listeners.Count; i++)
         {
-            listeners[i].OnEventTriggered();
+            listeners[i].OnEventTriggered(t);
         }
     }
 

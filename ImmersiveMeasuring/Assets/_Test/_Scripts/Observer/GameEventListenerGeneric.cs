@@ -1,12 +1,13 @@
+using MeasurementUtility;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class GameEventListenerGeneric<T> : MonoBehaviour
+public abstract class GameEventListenerGeneric<T> : MonoBehaviour
 {
     public GameEventGeneric<T> gameEvent;
-    public UnityEvent onEventTriggered;
+    public UnityEvent<T> onEventTriggered;
 
     void OnEnable()
     {
@@ -16,8 +17,10 @@ public class GameEventListenerGeneric<T> : MonoBehaviour
     {
         gameEvent.RemoveListener(this);
     }
-    public void OnEventTriggered()
+    public void OnEventTriggered(T t)
     {
-        onEventTriggered?.Invoke();
+        onEventTriggered?.Invoke(t);
     }
 }
+
+public class MeasurementGameEventListener: GameEventListenerGeneric<Measurement> { }

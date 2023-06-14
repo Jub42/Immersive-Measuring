@@ -5,7 +5,7 @@ using MeasurementUtility;
 
 //TODO: Singleton
 
-[RequireComponent(typeof(IMTEventHandler))]
+//[RequireComponent(typeof(IMTEventHandler))]
 public class MeasurementManager : MonoBehaviour
 {
     // private List<Measurement> measurements = new List<Measurement>(); 
