@@ -5,6 +5,11 @@ using UnityEngine;
 
 public class IMTBin : MonoBehaviour
 {
+    [SerializeField]
+    MeasurementGameEvent OnDelete;
+
+    Measurement m;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,11 +19,14 @@ public class IMTBin : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown("d"))
+        {
+            OnDelete.TriggerEvent(m);
+        }
     }
 
-    private void OnTriggerEnter(Collider other)
-    {    
-        GetComponent<IMTEventHandler>().InvokeEvent();
+    public void AddMeasurement(Measurement m)
+    {
+        this.m = m;
     }
 }

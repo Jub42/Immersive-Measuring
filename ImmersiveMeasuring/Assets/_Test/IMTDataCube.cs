@@ -12,8 +12,8 @@ public class IMTDataCube : MonoBehaviour
     // visualization -> MGrid
 
     // visibility
-    [SerializeField]
-    bool isVisible = true;
+    // [SerializeField]
+    // bool isVisible = true;
 
     bool isLocked = false;
 

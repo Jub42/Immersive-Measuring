@@ -8,11 +8,14 @@ using MeasurementUtility;
 //[RequireComponent(typeof(IMTEventHandler))]
 public class MeasurementManager : MonoBehaviour
 {
-    // private List<Measurement> measurements = new List<Measurement>(); 
+    private List<Measurement> measurements = new List<Measurement>(); 
 
-    //public List<Measurement> Measurements{get { return measurements; }}
+    public List<Measurement> Measurements{get { return measurements; }}
 
-    public IMTList<Measurement> measurements = new IMTList<Measurement>();
+    [SerializeField]
+    GameEvent gameEvent;
+
+    //public IMTList<Measurement> measurements = new IMTList<Measurement>();
 
     public void ImportFromJson()
     {
@@ -31,25 +34,25 @@ public class MeasurementManager : MonoBehaviour
     {
         // instantiate Prefab
         // add Prefab to measurements
-        Debug.Log(measurement.ToJObject().ToString());
+        Debug.Log("###### " + measurement.ToJObject().ToString());
 
         // add measurement
-        measurements.AddToList(measurement);
-
+        measurements.Add(measurement);
+        Debug.Log(measurements.Count);
         OnMeasurementsChange();
     }
 
-    public void RemoveMeasurementObject(int i, Measurement measurement)
+    public void RemoveMeasurementObject(Measurement measurement)
     {
         Debug.Log("Delete: " + measurement.ToJObject().ToString());
-        measurements.RemoveFromList(i, measurement);
-
+        measurements.Remove(measurement);
+        Debug.Log(measurements.Count);
         OnMeasurementsChange();
     }
 
     void OnMeasurementsChange()
     {
-        GetComponent<IMTEventHandler>().InvokeEvent();
+        //GetComponent<IMTEventHandler>().InvokeEvent();
     }
 
     // Start is called before the first frame update
@@ -64,6 +67,6 @@ public class MeasurementManager : MonoBehaviour
         // if(visualize) update list
         // else hide?
 
-        Debug.Log(measurements.Count);
+        
     }
 }

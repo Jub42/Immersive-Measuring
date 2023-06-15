@@ -22,5 +22,3 @@ public abstract class GameEventListenerGeneric<T> : MonoBehaviour
         onEventTriggered?.Invoke(t);
     }
 }
-
-public class MeasurementGameEventListener: GameEventListenerGeneric<Measurement> { }
