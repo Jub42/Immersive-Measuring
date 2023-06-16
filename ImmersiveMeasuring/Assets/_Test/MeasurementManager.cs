@@ -34,7 +34,7 @@ public class MeasurementManager : MonoBehaviour
     {
         // instantiate Prefab
         // add Prefab to measurements
-        Debug.Log("###### " + measurement.ToJObject().ToString());
+        Debug.Log("###### " + measurement.ToJson());
 
         // add measurement
         measurements.Add(measurement);

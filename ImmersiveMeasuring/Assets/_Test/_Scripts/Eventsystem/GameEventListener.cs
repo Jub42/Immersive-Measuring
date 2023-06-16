@@ -6,7 +6,7 @@ using UnityEngine.Events;
 
 public class GameEventListener : MonoBehaviour
 {  
-    public List<GameEvent> events;
+    // public List<GameEvent> events; funktioniert nicht so einfach
     public GameEvent gameEvent;
     public UnityEvent onEventTriggered;
 

@@ -10,5 +10,5 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 441e94c72ed73f14990f2230997956d1, type: 3}
-  m_Name: New Measurement Game Event
+  m_Name: OnCreateMeasurement
   m_EditorClassIdentifier: 
