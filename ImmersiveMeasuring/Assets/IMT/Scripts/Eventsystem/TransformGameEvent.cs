@@ -2,12 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IMTEventHandler : MonoBehaviour
+public class TransformGameEvent : MonoBehaviour
 {
-    [SerializeField]
-    List<GameEvent> events = new List<GameEvent>();
-    
-
     // Start is called before the first frame update
     void Start()
     {

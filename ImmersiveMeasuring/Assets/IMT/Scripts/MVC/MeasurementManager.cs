@@ -3,14 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using MeasurementUtility;
 
-//TODO: Singleton
-
-//[RequireComponent(typeof(IMTEventHandler))]
+// Just for Import/Export ?
 public class MeasurementManager : MonoBehaviour
 {
-    private List<Measurement> measurements = new List<Measurement>(); 
+    List<Measurement> measurements = new List<Measurement>(); 
 
-    public List<Measurement> Measurements{get { return measurements; }}
+    public List<Measurement> Measurements { get { return measurements; } }
 
     [SerializeField]
     GameEvent gameEvent;
@@ -19,7 +17,7 @@ public class MeasurementManager : MonoBehaviour
 
     public void ImportFromJson()
     {
-        // import existing list from json
+        // import existing data from json
 
         OnMeasurementsChange();
     }
@@ -30,7 +28,9 @@ public class MeasurementManager : MonoBehaviour
 
     // GetInfo()
 
-    public void CreateMeasurementObject(Measurement measurement)
+
+    // Deprecated? if pinned variant
+    public void AddMeasurement(Measurement measurement)
     {
         // instantiate Prefab
         // add Prefab to measurements
@@ -42,9 +42,9 @@ public class MeasurementManager : MonoBehaviour
         OnMeasurementsChange();
     }
 
-    public void RemoveMeasurementObject(Measurement measurement)
+    public void RemoveMeasurement(Measurement measurement)
     {
-        Debug.Log("Delete: " + measurement.ToJObject().ToString());
+        Debug.Log("Delete: " + measurement.ToJson());
         measurements.Remove(measurement);
         Debug.Log(measurements.Count);
         OnMeasurementsChange();
@@ -55,6 +55,8 @@ public class MeasurementManager : MonoBehaviour
         //GetComponent<IMTEventHandler>().InvokeEvent();
     }
 
+    // Save Coroutine
+
     // Start is called before the first frame update
     void Start()
     {
@@ -64,7 +66,7 @@ public class MeasurementManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // if(visualize) update list
+        // if(visualize) update data
         // else hide?
 
         

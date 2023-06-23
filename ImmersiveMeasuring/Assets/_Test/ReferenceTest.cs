@@ -24,7 +24,7 @@ public class ReferenceTest : MonoBehaviour
 
         Measurement m;
 
-        GetComponent<IMTDataCube>().GetMeasurementID(out m);
+        GetComponent<IMTDataCube>().GetMeasurement(out m);
 
         Debug.Log(m.ToJson());
     }

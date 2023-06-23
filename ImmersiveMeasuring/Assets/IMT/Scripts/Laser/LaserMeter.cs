@@ -51,10 +51,6 @@ public class LaserMeter : MonoBehaviour
                 new Coordinate(marker.position.x, marker.position.y, marker.position.z),
                 distance);
 
-            
-            Debug.Log(m.ID.GetType());
-            Debug.Log("Hier: " + m.ToJson());
-
             gameEvent.TriggerEvent(m);
         }
     }

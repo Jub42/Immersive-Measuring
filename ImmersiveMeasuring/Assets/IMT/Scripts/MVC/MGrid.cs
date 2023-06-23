@@ -1,30 +1,15 @@
 using MeasurementUtility;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
-[RequireComponent(typeof (MeasurementManager))]
+// get objects and places it
+
 public class MGrid : MonoBehaviour
 {
-
-
-    private class Container
-    {
-        int i;
-        GameObject obj;
-
-        Container(int i, GameObject obj)
-        {
-            this.i = i;
-            this.obj = obj;
-        }
-    }
-
     [SerializeField]
-    List<GameObject> list;
-
-    [SerializeField]
-    GameObject prefab;
+    GameObjectStorage data;
 
     [SerializeField, Range(1, 10)]
     int maxRows = 1;
@@ -41,7 +26,7 @@ public class MGrid : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        int i = list.Count;
+        int i = data.Count;
     }
 
     // Update is called once per frame
@@ -55,7 +40,7 @@ public class MGrid : MonoBehaviour
     {
         Debug.Log("Update Measurements!");
         // Mlist = GetComponent<MeasurementManager>().GetMeasurements();
-        // create gameobj list with Mlist
+        // create gameobj data with Mlist
     }
 
     void UpdateVisualization()
@@ -65,14 +50,15 @@ public class MGrid : MonoBehaviour
         GameObject obj = null;
         bool isGrabbed = false;
         bool isInBounds = false;
+        bool isPinned = false;
         Rigidbody rb;
         Vector3 v = Vector3.zero;
         Vector3 up = Vector3.up;
         Vector3 forward = Vector3.forward;
 
-        for (int i = 0; i < list.Count; i++)
+        for (int i = 0; i < data.Count; i++)
         {
-            obj = list[i];
+            obj = data.GetValue(i);
 
             if (obj == null && i == 0)
             {
@@ -81,8 +67,9 @@ public class MGrid : MonoBehaviour
 
             isGrabbed = obj.GetComponent<VisualMeasurementContainer>().grabbed;
             isInBounds = this.GetComponent<Collider>().bounds.Contains(obj.transform.position);
+            isPinned = obj.GetComponent<IMTDataCube>().isPinned;
 
-            if(!isGrabbed && isInBounds)
+            if(!isGrabbed && isInBounds && !isPinned)
             {
                 rb = obj.GetComponent<Rigidbody>();
                 rb.useGravity = false;
@@ -96,16 +83,6 @@ public class MGrid : MonoBehaviour
                 obj.transform.forward = forward;
             }
 
-        }
-    }
-
-    // ref ObjectCreationTool
-    void CreatePrefab(List<Measurement> measurements)
-    {
-        for(int i = 0; i < measurements.Count; i++)
-        {
-            // add Prefab to list
-            
         }
     }
 

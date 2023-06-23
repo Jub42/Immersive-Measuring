@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IMTEvent : MonoBehaviour
+// place pinned DataCubes
+public class IMTGrid : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()

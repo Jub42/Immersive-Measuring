@@ -9,13 +9,16 @@ public class IMTDataCube : MonoBehaviour
     // Reference to measurement
     Measurement measurement;
 
-    // visualization -> MGrid
+    // visualization -> MGrid? nope!
 
     // visibility
     // [SerializeField]
     // bool isVisible = true;
 
     bool isLocked = false;
+    // Property
+
+    public bool isPinned = false;
 
     // Setup DataCube func
     
@@ -37,7 +40,7 @@ public class IMTDataCube : MonoBehaviour
         }     
     }
 
-    public bool GetMeasurementID(out Measurement measurement)
+    public bool GetMeasurement(out Measurement measurement)
     {
         if (!isLocked)
         {
@@ -53,13 +56,12 @@ public class IMTDataCube : MonoBehaviour
             return false;
         }
     }
-    public Measurement GetMeasurement()
+
+    private void OnDestroy()
     {
-        return measurement;
+        // Event
+        // Queue Task DataStorage
     }
-
-
-    //TODO: Destroy // see: Manager
 
     // Start is called before the first frame update
     void Start()
