@@ -5,10 +5,9 @@ using UnityEngine;
 
 public static class IMTObjectCreationTool
 {
-    public static bool InstantiateMeasurementGameObj(Measurement measurement, out GameObject prefab)
+    public static bool InstantiateMeasurementOnGameObj(Measurement measurement, ref GameObject prefab)
     {
-        prefab = Object.Instantiate(Resources.Load("_Test/Prefabs/DataCube")) as GameObject;
-        if (prefab.GetComponent<IMTDataCube>().SetMeasurement(ref measurement))
+        if (prefab.GetComponent<IMTDataCube>().SetMeasurement(measurement))
         {
             return true;
         }
@@ -18,9 +17,10 @@ public static class IMTObjectCreationTool
         }
     }
 
+    // change to ref?
     public static bool ExtractMeasurementData(GameObject dataCube, out Measurement measurement)
     {
-        if(dataCube.gameObject.GetComponent<IMTDataCube>() != null)
+        if (dataCube.gameObject.GetComponent<IMTDataCube>() != null)
         {
             dataCube.gameObject.GetComponent<IMTDataCube>().GetMeasurement(out measurement);
             return true;

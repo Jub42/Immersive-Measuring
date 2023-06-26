@@ -7,6 +7,7 @@ using UnityEngine;
 
 public abstract class DataStorage<T> : ScriptableObject
 {
+    [SerializeField]
     List<T> data;
 
     public int Count

@@ -18,7 +18,10 @@ public class IMTDataCube : MonoBehaviour
     bool isLocked = false;
     // Property
 
-    public bool isPinned = false;
+    public bool isPinned = true;
+
+    [SerializeField]
+    GameEvent onDestroy;
 
     // Setup DataCube func
     
@@ -26,7 +29,7 @@ public class IMTDataCube : MonoBehaviour
     [SerializeField]
     List<GameObject> iconList = new List<GameObject>();
 
-    public bool SetMeasurement(ref Measurement measurement)
+    public bool SetMeasurement(Measurement measurement)
     {
         if (!isLocked)
         {
@@ -59,7 +62,7 @@ public class IMTDataCube : MonoBehaviour
 
     private void OnDestroy()
     {
-        // Event
+        // GameObjectEvent
         // Queue Task DataStorage
     }
 

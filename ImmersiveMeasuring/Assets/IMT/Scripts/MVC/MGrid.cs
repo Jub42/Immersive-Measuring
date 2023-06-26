@@ -65,7 +65,7 @@ public class MGrid : MonoBehaviour
                 break;
             }
 
-            isGrabbed = obj.GetComponent<VisualMeasurementContainer>().grabbed;
+            //isGrabbed = obj.GetComponent<VisualMeasurementContainer>().grabbed;
             isInBounds = this.GetComponent<Collider>().bounds.Contains(obj.transform.position);
             isPinned = obj.GetComponent<IMTDataCube>().isPinned;
 

@@ -7,7 +7,7 @@ using MeasurementUtility;
 public class LaserMeter : MonoBehaviour
 {
     [SerializeField]
-    MeasurementGameEvent gameEvent;
+    MeasurementGameEvent onMeasure;
 
     [SerializeField]
     Transform origin;
@@ -51,7 +51,7 @@ public class LaserMeter : MonoBehaviour
                 new Coordinate(marker.position.x, marker.position.y, marker.position.z),
                 distance);
 
-            gameEvent.TriggerEvent(m);
+            onMeasure.TriggerEvent(m);
         }
     }
 
