@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 using UnityEngine;
 
 // get objects and places it
-
+[RequireComponent(typeof(Collider))]
 public class MGrid : MonoBehaviour
 {
     [SerializeField]
@@ -60,6 +60,8 @@ public class MGrid : MonoBehaviour
         {
             obj = data.GetValue(i);
 
+            Debug.Log("aspldifj: " + obj.transform.position);
+
             if (obj == null && i == 0)
             {
                 break;
@@ -69,15 +71,18 @@ public class MGrid : MonoBehaviour
             isInBounds = this.GetComponent<Collider>().bounds.Contains(obj.transform.position);
             isPinned = obj.GetComponent<IMTDataCube>().isPinned;
 
-            if(!isGrabbed && isInBounds && !isPinned)
+            //Debug.Log("grabbed: " + isGrabbed + "bounds: " + isInBounds + "pinned: " + isPinned + "");
+
+            // !isGrabbed && isInBounds && isPinned
+            if (true)
             {
                 rb = obj.GetComponent<Rigidbody>();
                 rb.useGravity = false;
                 rb.isKinematic = true;
-
+                
                 v = new Vector3(i % maxCols, -(i / maxRows) % maxRows, -i / maxBatchSize) * spacing;
                 obj.transform.position = offset.position + v;
-
+                
                 // handle in VisualContainer?
                 obj.transform.up = up;
                 obj.transform.forward = forward;

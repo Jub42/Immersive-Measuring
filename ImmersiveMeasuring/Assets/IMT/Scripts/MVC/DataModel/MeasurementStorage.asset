@@ -9,7 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4036d5c9c44a8c4d9306170aba6416b, type: 3}
-  m_Name: DataCubeStorage
+  m_Script: {fileID: 11500000, guid: 7b08a0ab44ca7ce48b48e71b2da73c44, type: 3}
+  m_Name: MeasurementStorage
   m_EditorClassIdentifier: 
-  data: []

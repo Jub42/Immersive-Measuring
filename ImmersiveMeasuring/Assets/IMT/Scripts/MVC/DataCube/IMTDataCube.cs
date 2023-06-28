@@ -18,7 +18,7 @@ public class IMTDataCube : MonoBehaviour
     bool isLocked = false;
     // Property
 
-    public bool isPinned = true;
+    public bool isPinned = false;
 
     [SerializeField]
     GameEvent onDestroy;
@@ -34,7 +34,8 @@ public class IMTDataCube : MonoBehaviour
         if (!isLocked)
         {
             this.measurement = measurement;
-            isLocked= true;
+            isLocked = true;
+            isPinned = true;
             return true;
         }
         else

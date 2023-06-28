@@ -1,12 +1,13 @@
 using MeasurementUtility;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 
-public class IMTManager : MonoBehaviour
+public class IMTSpawner : MonoBehaviour
 {
     [SerializeField]
-    GameObjectStorage storage;
+    List <GameObject> objects = new List <GameObject> ();
 
     [SerializeField]
     GameObject go;
@@ -17,7 +18,7 @@ public class IMTManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //storage.Clear();
+        
     }
 
     // Update is called once per frame
@@ -26,24 +27,16 @@ public class IMTManager : MonoBehaviour
         
     }
 
-    // Coroutines?
-    public void ImportFromJson()
-    {
-        // import existing data from json to DataStorage
-    }
-    public void ExportAsJson(string path)
-    {
-        // export pinned DataCube information to path as json
-    }
-
-    // Create and add DataCube
     public void AddDataCube(Measurement m)
     {
         GameObject prefab = Instantiate(go, spawnLocation.position, Quaternion.identity);
         if (IMTObjectCreationTool.InstantiateMeasurementOnGameObj(m, ref prefab))
         {
-            storage.AddData(go);
+            objects.Add(prefab);
         }
-        Debug.Log(storage.Count);
+    }
+    public void RemoveDataCube(GameObject obj)
+    {
+        objects.Remove(obj);
     }
 }
