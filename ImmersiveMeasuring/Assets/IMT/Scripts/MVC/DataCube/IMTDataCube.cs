@@ -29,6 +29,9 @@ public class IMTDataCube : MonoBehaviour
     [SerializeField]
     List<GameObject> iconList = new List<GameObject>();
 
+    [SerializeField]
+    float result;
+
     public bool SetMeasurement(Measurement measurement)
     {
         if (!isLocked)
@@ -36,6 +39,7 @@ public class IMTDataCube : MonoBehaviour
             this.measurement = measurement;
             isLocked = true;
             isPinned = true;
+            this.result = (float)measurement.Result.Value;
             return true;
         }
         else

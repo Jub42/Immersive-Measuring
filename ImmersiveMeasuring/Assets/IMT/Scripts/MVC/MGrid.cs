@@ -60,8 +60,6 @@ public class MGrid : MonoBehaviour
         {
             obj = data.GetValue(i);
 
-            Debug.Log("aspldifj: " + obj.transform.position);
-
             if (obj == null && i == 0)
             {
                 break;

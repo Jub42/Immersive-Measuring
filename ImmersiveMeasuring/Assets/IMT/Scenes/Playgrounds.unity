@@ -754,7 +754,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d60b26c8a013464f8450ffbc2ba3fab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objects: []
   go: {fileID: 7458893998776664315, guid: 83ddb421b55e7314186e88c69325fc00, type: 3}
   spawnLocation: {fileID: 1908537396}
 --- !u!114 &1775935051
@@ -775,7 +774,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1775935050}
         m_TargetAssemblyTypeName: IMTSpawner, Assembly-CSharp
-        m_MethodName: AddDataCube
+        m_MethodName: SpawnDataCube
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1015,7 +1014,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1908537396}
   m_Layer: 0
-  m_Name: Spawn
+  m_Name: SpawnLocation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

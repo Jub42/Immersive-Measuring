@@ -7,9 +7,6 @@ using UnityEngine;
 public class IMTSpawner : MonoBehaviour
 {
     [SerializeField]
-    List <GameObject> objects = new List <GameObject> ();
-
-    [SerializeField]
     GameObject go;
 
     [SerializeField]
@@ -27,16 +24,13 @@ public class IMTSpawner : MonoBehaviour
         
     }
 
-    public void AddDataCube(Measurement m)
+    public void SpawnDataCube(Measurement m)
     {
         GameObject prefab = Instantiate(go, spawnLocation.position, Quaternion.identity);
+        
         if (IMTObjectCreationTool.InstantiateMeasurementOnGameObj(m, ref prefab))
         {
-            objects.Add(prefab);
+            Debug.Log("DataCube spawned: " + prefab.name);
         }
-    }
-    public void RemoveDataCube(GameObject obj)
-    {
-        objects.Remove(obj);
     }
 }
