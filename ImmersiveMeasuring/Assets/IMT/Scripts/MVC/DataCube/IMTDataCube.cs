@@ -1,3 +1,4 @@
+using HTC.UnityPlugin.Vive;
 using MeasurementUtility;
 using System.Collections;
 using System.Collections.Generic;
@@ -28,6 +29,8 @@ public class IMTDataCube : MonoBehaviour
     // handle prefab
     [SerializeField]
     List<GameObject> iconList = new List<GameObject>();
+
+    public bool isGrabbed = false;
 
     [SerializeField]
     float result;
@@ -81,6 +84,6 @@ public class IMTDataCube : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        this.isGrabbed = GetComponent<GrabbableBase>().isGrabbed;
     }
 }

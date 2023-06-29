@@ -9,7 +9,7 @@ using UnityEngine;
 public class MGrid : MonoBehaviour
 {
     [SerializeField]
-    GameObjectStorage data;
+    List<GameObject> data = new List<GameObject>();
 
     [SerializeField, Range(1, 10)]
     int maxRows = 1;
@@ -58,21 +58,21 @@ public class MGrid : MonoBehaviour
 
         for (int i = 0; i < data.Count; i++)
         {
-            obj = data.GetValue(i);
+            obj = data[i];
 
             if (obj == null && i == 0)
             {
                 break;
             }
 
-            //isGrabbed = obj.GetComponent<VisualMeasurementContainer>().grabbed;
+            isGrabbed = obj.GetComponent<IMTDataCube>().isGrabbed;
             isInBounds = this.GetComponent<Collider>().bounds.Contains(obj.transform.position);
             isPinned = obj.GetComponent<IMTDataCube>().isPinned;
 
             //Debug.Log("grabbed: " + isGrabbed + "bounds: " + isInBounds + "pinned: " + isPinned + "");
 
             // !isGrabbed && isInBounds && isPinned
-            if (true)
+            if (!isGrabbed && isInBounds && isPinned)
             {
                 rb = obj.GetComponent<Rigidbody>();
                 rb.useGravity = false;
@@ -86,6 +86,21 @@ public class MGrid : MonoBehaviour
                 obj.transform.forward = forward;
             }
 
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.GetComponent<IMTDataCube>() != null)
+        {
+            data.Add(other.gameObject);
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.GetComponent<IMTDataCube>() != null)
+        {
+            data.Remove(other.gameObject);
         }
     }
 
