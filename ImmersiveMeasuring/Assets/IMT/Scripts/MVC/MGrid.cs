@@ -1,4 +1,5 @@
 using MeasurementUtility;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
@@ -22,6 +23,13 @@ public class MGrid : MonoBehaviour
 
     [SerializeField]
     float spacing = 1f;
+
+    [SerializeField, Range(-360, 360)]
+    float xRotation = 0f;
+    [SerializeField, Range(-360, 360)]
+    float yRotation = -90f;
+    [SerializeField, Range(-360, 360)]
+    float zRotation = 0f;
 
     // Start is called before the first frame update
     void Start()
@@ -76,9 +84,16 @@ public class MGrid : MonoBehaviour
             {
                 rb = obj.GetComponent<Rigidbody>();
                 rb.useGravity = false;
-                rb.isKinematic = true;
+                rb.isKinematic = true;              
+
+                v = new Vector3(i % maxCols, -(i / maxCols) % maxRows, -i / maxBatchSize) * spacing;
+
+                Debug.Log("i: " + i);
+                Debug.Log("-(i / maxCols): " + -(i / maxCols));
+                Debug.Log(v);
                 
-                v = new Vector3(i % maxCols, -(i / maxRows) % maxRows, -i / maxBatchSize) * spacing;
+                // rotate around world axis
+                v = Quaternion.Euler(xRotation, yRotation, zRotation) * v;
                 obj.transform.position = offset.position + v;
                 
                 // handle in VisualContainer?

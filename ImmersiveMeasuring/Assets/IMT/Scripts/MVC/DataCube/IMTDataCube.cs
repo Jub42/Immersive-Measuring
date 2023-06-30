@@ -41,7 +41,6 @@ public class IMTDataCube : MonoBehaviour
         {
             this.measurement = measurement;
             isLocked = true;
-            isPinned = true;
             this.result = (float)measurement.Result.Value;
             return true;
         }
@@ -85,5 +84,9 @@ public class IMTDataCube : MonoBehaviour
     void Update()
     {
         this.isGrabbed = GetComponent<GrabbableBase>().isGrabbed;
+        if(isGrabbed)
+        {
+            isPinned = false;
+        }
     }
 }
