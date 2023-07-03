@@ -79,7 +79,6 @@ public class MGrid : MonoBehaviour
 
             //Debug.Log("grabbed: " + isGrabbed + "bounds: " + isInBounds + "pinned: " + isPinned + "");
 
-            // !isGrabbed && isInBounds && isPinned
             if (!isGrabbed && isInBounds && isPinned)
             {
                 rb = obj.GetComponent<Rigidbody>();

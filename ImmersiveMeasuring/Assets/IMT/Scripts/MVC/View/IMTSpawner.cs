@@ -12,6 +12,9 @@ public class IMTSpawner : MonoBehaviour
     [SerializeField]
     Transform spawnLocation;
 
+    [SerializeField]
+    Transform parent;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +29,9 @@ public class IMTSpawner : MonoBehaviour
 
     public void SpawnDataCube(Measurement m)
     {
+        //TODO: Parent
+        //Instantiate(go, Vector3.zero, Quaternion.identity, parent);
+        //TODO: naming
         GameObject prefab = Instantiate(go, spawnLocation.position, Quaternion.identity);
         prefab.GetComponent<IMTDataCube>().isPinned = true;
 
