@@ -24,6 +24,7 @@ public class MGrid : MonoBehaviour
     [SerializeField]
     float spacing = 1f;
 
+    // Add Gizmo?
     [SerializeField, Range(-360, 360)]
     float xRotation = 0f;
     [SerializeField, Range(-360, 360)]
