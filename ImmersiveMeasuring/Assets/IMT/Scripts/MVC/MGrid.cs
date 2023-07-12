@@ -10,7 +10,7 @@ using UnityEngine;
 public class MGrid : MonoBehaviour
 {
     [SerializeField]
-    List<GameObject> data = new List<GameObject>();
+    public List<GameObject> data = new List<GameObject>();
 
     [SerializeField, Range(1, 10)]
     int maxRows = 1;

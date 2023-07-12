@@ -6,24 +6,42 @@ using UnityEngine;
 public class IMTManager : MonoBehaviour
 {
     [SerializeField]
-    GameObjectStorage storage;
+    MeasurementStorage storage;
 
+    #region deprecated?
     [SerializeField]
     GameObject go;
 
     [SerializeField]
     Transform spawnLocation;
+    #endregion
 
     // Start is called before the first frame update
     void Start()
     {
-        //storage.Clear();
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        storage.Clear();
+
+        foreach (Transform child in transform)
+        { 
+            IMTDataCube dataCube = child.GetComponent<IMTDataCube>();
+
+            if (dataCube.isPinned)
+            {
+                Measurement m = new EmptyMeasurement();
+                if(dataCube.GetMeasurement(out m))
+                {
+                    storage.AddData(m);
+                }
+            }
+        }
+
+        Debug.Log("Storage Count: " + storage.Count);
     }
 
     // Coroutines?
@@ -39,11 +57,11 @@ public class IMTManager : MonoBehaviour
     // Create and add DataCube
     public void AddDataCube(Measurement m)
     {
-        GameObject prefab = Instantiate(go, spawnLocation.position, Quaternion.identity);
-        if (IMTObjectCreationTool.InstantiateMeasurementOnGameObj(m, ref prefab))
-        {
-            storage.AddData(go);
-        }
-        Debug.Log(storage.Count);
+        //GameObject prefab = Instantiate(go, spawnLocation.position, Quaternion.identity);
+        //if (IMTObjectCreationTool.InstantiateMeasurementOnGameObj(m, ref prefab))
+        //{
+            //storage.AddData(go);
+        //}
+        //Debug.Log(storage.Count);
     }
 }

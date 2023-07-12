@@ -52,7 +52,7 @@ public class IMTDataCube : MonoBehaviour
 
     public bool GetMeasurement(out Measurement measurement)
     {
-        if (!isLocked)
+        if (isLocked)
         {
             measurement = this.measurement;
             return true;

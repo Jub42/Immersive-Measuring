@@ -7,11 +7,9 @@ using MeasurementUtility;
 public class MeasurementManager : MonoBehaviour
 {
     List<Measurement> measurements = new List<Measurement>(); 
-
     public List<Measurement> Measurements { get { return measurements; } }
 
-    [SerializeField]
-    GameEvent gameEvent;
+    //OnSaveEvent
 
     //public IMTList<Measurement> measurements = new IMTList<Measurement>();
 
