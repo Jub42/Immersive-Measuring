@@ -32,7 +32,7 @@ public class IMTSpawner : MonoBehaviour
         //Instantiate(go, Vector3.zero, Quaternion.identity, parent);
         //TODO: naming
         GameObject prefab = Instantiate(go, spawnLocation.position, Quaternion.identity, parent);
-        prefab.GetComponent<IMTDataCube>().isPinned = true;
+        prefab.GetComponent<IMTDataCube>().isPinned = false;
 
         if (IMTObjectCreationTool.InstantiateMeasurementOnGameObj(m, ref prefab))
         {

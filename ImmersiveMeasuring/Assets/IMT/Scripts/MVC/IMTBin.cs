@@ -8,8 +8,6 @@ public class IMTBin : MonoBehaviour
     [SerializeField]
     MeasurementGameEvent OnDelete;
 
-    Measurement m;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -19,14 +17,14 @@ public class IMTBin : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("d"))
-        {
-            OnDelete.TriggerEvent(m);
-        }
+        
     }
 
-    public void AddMeasurement(Measurement m)
+    private void OnTriggerStay(Collider other)
     {
-        this.m = m;
+        if(!other.GetComponent<IMTDataCube>().isGrabbed && !other.GetComponent<IMTDataCube>().isPinned)
+        {
+            Destroy(other.gameObject);
+        }
     }
 }

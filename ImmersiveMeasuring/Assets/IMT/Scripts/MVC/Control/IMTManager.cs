@@ -25,26 +25,28 @@ public class IMTManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        storage.Clear();
 
-        foreach (Transform child in transform)
-        { 
-            IMTDataCube dataCube = child.GetComponent<IMTDataCube>();
+    }
 
+    public void Save()
+    {
+        int children = transform.childCount;
+        for(int i = 0; i < children; i++)
+        {
+            IMTDataCube dataCube = transform.GetChild(i).GetComponent<IMTDataCube>();
             if (dataCube.isPinned)
             {
                 Measurement m = new EmptyMeasurement();
-                if(dataCube.GetMeasurement(out m))
+                if (dataCube.GetMeasurement(out m))
                 {
                     storage.AddData(m);
                 }
             }
         }
-
         Debug.Log("Storage Count: " + storage.Count);
     }
 
-    // Coroutines?
+    // Coroutines? / Async
     public void ImportFromJson()
     {
         // import existing data from json to DataStorage
