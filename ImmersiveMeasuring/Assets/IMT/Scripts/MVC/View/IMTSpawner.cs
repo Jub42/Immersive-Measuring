@@ -36,7 +36,8 @@ public class IMTSpawner : MonoBehaviour
 
         if (IMTObjectCreationTool.InstantiateMeasurementOnGameObj(m, ref prefab))
         {
-            Debug.Log("DataCube spawned: " + prefab.name);
+            prefab.name = m.ID;
+            Debug.Log("DataCube spawned: " + m.GetType() + " " + prefab.name);
         }
     }
 }

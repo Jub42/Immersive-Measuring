@@ -8,14 +8,6 @@ public class IMTManager : MonoBehaviour
     [SerializeField]
     MeasurementStorage storage;
 
-    #region deprecated?
-    [SerializeField]
-    GameObject go;
-
-    [SerializeField]
-    Transform spawnLocation;
-    #endregion
-
     // Start is called before the first frame update
     void Start()
     {
@@ -28,7 +20,7 @@ public class IMTManager : MonoBehaviour
 
     }
 
-    public void Save()
+    public void StoreData()
     {
         int children = transform.childCount;
         for(int i = 0; i < children; i++)
@@ -37,7 +29,7 @@ public class IMTManager : MonoBehaviour
             if (dataCube.isPinned)
             {
                 Measurement m = new EmptyMeasurement();
-                if (dataCube.GetMeasurement(out m))
+                if (dataCube.GetMeasurement(out m)) // IMTObjectCreationTool?
                 {
                     storage.AddData(m);
                 }

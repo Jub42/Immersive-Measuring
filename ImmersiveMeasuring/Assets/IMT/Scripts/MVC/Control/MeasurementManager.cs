@@ -53,7 +53,7 @@ public class MeasurementManager : MonoBehaviour
         //GetComponent<IMTEventHandler>().InvokeEvent();
     }
 
-    // Save Coroutine
+    // StoreData Coroutine
 
     // Start is called before the first frame update
     void Start()
