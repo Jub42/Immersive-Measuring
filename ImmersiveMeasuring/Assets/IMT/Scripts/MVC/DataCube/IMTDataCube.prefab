@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79eef2e029153f24dbddf8b5c4b61e6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPinned: 1
+  isPinned: 0
   onDestroy: {fileID: 0}
   iconList:
   - {fileID: 0}

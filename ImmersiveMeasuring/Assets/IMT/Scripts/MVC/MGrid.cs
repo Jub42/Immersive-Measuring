@@ -115,6 +115,10 @@ public class MGrid : MonoBehaviour
     {
         if (other.GetComponent<IMTDataCube>() != null)
         {
+            Rigidbody rb = other.GetComponent<Rigidbody>();
+            rb.useGravity = true;
+            rb.isKinematic = false;
+            //see datacube: other.GetComponent<IMTDataCube>().isPinned= false;
             data.Remove(other.gameObject);
         }
     }

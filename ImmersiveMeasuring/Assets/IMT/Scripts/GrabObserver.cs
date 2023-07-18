@@ -8,7 +8,7 @@ public class GrabObserver : MonoBehaviour
     public BasicGrabbable grabbable;
 
     [SerializeField]
-    bool grabbed = false;
+    public bool grabbed = false;
 
     [SerializeField]
     Material mat;
