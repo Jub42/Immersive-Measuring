@@ -1,5 +1,6 @@
 using HTC.UnityPlugin.Vive;
 using MeasurementUtility;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -42,6 +43,9 @@ public class IMTDataCube : MonoBehaviour
             this.measurement = measurement;
             isLocked = true;
             this.result = (float)measurement.Result.Value;
+
+            SelectIcon(measurement);
+
             return true;
         }
         else
@@ -87,6 +91,27 @@ public class IMTDataCube : MonoBehaviour
         if(isGrabbed)
         {
             isPinned = false;
+        }
+    }
+
+    // TODO: Maybe other solution: No fixed positions
+    void SelectIcon(Measurement m)
+    {
+        for (int i = 0; i < iconList.Count; i++)
+        {
+            iconList[i].gameObject.SetActive(false);
+        }
+
+        switch (m)
+        {
+            case MeasurementUtility.Distance:
+                iconList[2].gameObject.SetActive(true);
+                Debug.Log("Distance Icon Selected.");
+                break;
+
+            default:
+                Debug.Log("Uff!");
+                break;
         }
     }
 }

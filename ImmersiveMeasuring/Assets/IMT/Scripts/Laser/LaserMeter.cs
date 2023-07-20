@@ -41,8 +41,8 @@ public class LaserMeter : MonoBehaviour
 
         // Check for isGrabbed
         
-        if (ViveInput.GetPressDown(HandRole.RightHand, ControllerButton.Trigger) && GetComponent<GrabObserver>().grabbed)
-        //if(Input.GetKeyDown("space"))
+        //if (ViveInput.GetPressDown(HandRole.RightHand, ControllerButton.Trigger) && GetComponent<GrabObserver>().grabbed)
+        if(Input.GetKeyDown("space"))
         {
             // Hook for Button // central definition point
 
