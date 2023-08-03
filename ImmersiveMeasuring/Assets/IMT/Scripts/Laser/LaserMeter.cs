@@ -37,12 +37,18 @@ public class LaserMeter : MonoBehaviour
     void Update()
     {
         distance = Vector3.Distance(origin.position, marker.position);
-        display.text = distance.ToString();
+        //display.text = distance.ToString();
 
         // Check for isGrabbed
-        
+
+        // location + button pressed
+        if (ViveInput.GetPress(HandRole.RightHand, ControllerButton.PadTouch))
+        {
+            display.text = "padAxis = " + ViveInput.GetPadAxisEx(HandRole.RightHand); // location
+        }
+
         //if (ViveInput.GetPressDown(HandRole.RightHand, ControllerButton.Trigger) && GetComponent<GrabObserver>().grabbed)
-        if(Input.GetKeyDown("space"))
+        if (Input.GetKeyDown("space"))
         {
             // Hook for Button // central definition point
 
