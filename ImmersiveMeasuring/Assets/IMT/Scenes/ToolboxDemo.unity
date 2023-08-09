@@ -1175,6 +1175,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3374823878153124417, guid: 952faa0bcd282554c8f26e30a46ff476, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6339641553697657876, guid: 952faa0bcd282554c8f26e30a46ff476, type: 3}
       propertyPath: m_Name
       value: DummyCube
