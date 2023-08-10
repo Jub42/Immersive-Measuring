@@ -19,6 +19,10 @@ public class IMTDataCube : MonoBehaviour
 
     bool isLocked = false;
     // Property
+    public bool IsLocked
+    {
+        get { return isLocked; }
+    }
 
     public bool isPinned = false;
 
@@ -38,6 +42,7 @@ public class IMTDataCube : MonoBehaviour
 
     public bool SetMeasurement(Measurement measurement)
     {
+        Debug.Log("Set Measurement");
         if (!isLocked)
         {
             this.measurement = measurement;

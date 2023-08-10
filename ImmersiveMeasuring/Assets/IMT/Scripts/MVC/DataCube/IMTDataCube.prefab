@@ -197,7 +197,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2813684908320907927}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.22, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -221,6 +221,7 @@ MonoBehaviour:
   display: {fileID: 7728282636463622464}
   dataCube: {fileID: 7458893998776664309}
   text: {fileID: 6790969776610785771}
+  displayOffset: 0.3
 --- !u!1 &5128442894580290339
 GameObject:
   m_ObjectHideFlags: 0
@@ -281,6 +282,7 @@ GameObject:
   - component: {fileID: 3936561791537668528}
   - component: {fileID: 1878192149164756905}
   - component: {fileID: 731471328626161796}
+  - component: {fileID: 254460789055872187}
   m_Layer: 2
   m_Name: IMTDataCube
   m_TagString: Untagged
@@ -392,6 +394,57 @@ MonoBehaviour:
   m_onDrop:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &254460789055872187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7458893998776664315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db37736e19fad4c46910ece46a00bab0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  everyHoverEntered:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3794779001352000004}
+        m_TargetAssemblyTypeName: BillboardDisplay, Assembly-CSharp
+        m_MethodName: OnHoverEnter
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  hoverStaying:
+    m_PersistentCalls:
+      m_Calls: []
+  hoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  everyHoverExited:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3794779001352000004}
+        m_TargetAssemblyTypeName: BillboardDisplay, Assembly-CSharp
+        m_MethodName: OnHoverExit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &9175645721195902273
 GameObject:
   m_ObjectHideFlags: 0

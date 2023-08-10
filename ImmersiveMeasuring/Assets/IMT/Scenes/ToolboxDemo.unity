@@ -1183,6 +1183,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DummyCube
       objectReference: {fileID: 0}
+    - target: {fileID: 6339641553697657876, guid: 952faa0bcd282554c8f26e30a46ff476, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 952faa0bcd282554c8f26e30a46ff476, type: 3}
 --- !u!114 &1106024070 stripped
