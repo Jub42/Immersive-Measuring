@@ -17,7 +17,7 @@ public class BillboardDisplay : MonoBehaviour
     TMP_Text text;
 
     [SerializeField]
-    float displayOffset;
+    float displayOffsetLength;
     Vector3 displayPosition;
 
     void Awake()
@@ -42,11 +42,10 @@ public class BillboardDisplay : MonoBehaviour
 
     void Update()
     {
-        displayPosition = (Camera.main.transform.position - dataCube.transform.position).normalized * displayOffset;
+        displayPosition = dataCube.transform.position + (Camera.main.transform.position - dataCube.transform.position).normalized * displayOffsetLength;
         this.transform.position = displayPosition;
         
-        Debug.DrawLine(dataCube.transform.position, (Camera.main.transform.position - dataCube.transform.position).normalized, Color.green);
-        //Debug.DrawLine(dataCube.transform.position, (dataCube.transform.position + (dataCube.transform.position - Camera.main.transform.position).normalized) * displayOffset, Color.red);
+        Debug.DrawLine(dataCube.transform.position, displayPosition, Color.green);
 
         if (this.gameObject.activeSelf)
         {

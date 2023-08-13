@@ -221,7 +221,7 @@ MonoBehaviour:
   display: {fileID: 7728282636463622464}
   dataCube: {fileID: 7458893998776664309}
   text: {fileID: 6790969776610785771}
-  displayOffset: 0.3
+  displayOffsetLength: 0.3
 --- !u!1 &5128442894580290339
 GameObject:
   m_ObjectHideFlags: 0
