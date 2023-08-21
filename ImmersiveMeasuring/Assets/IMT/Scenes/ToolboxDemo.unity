@@ -724,6 +724,38 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11417838, guid: 2b3a4efa04a7cf2428e0835b20f15fdc, type: 3}
+      propertyPath: m_viveRole.m_roleValueInt
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11417838, guid: 2b3a4efa04a7cf2428e0835b20f15fdc, type: 3}
+      propertyPath: m_viveRole.m_roleValueName
+      value: LeftHand
+      objectReference: {fileID: 0}
+    - target: {fileID: 11417838, guid: 2b3a4efa04a7cf2428e0835b20f15fdc, type: 3}
+      propertyPath: m_viveRole.m_roleTypeFullName
+      value: HTC.UnityPlugin.Vive.ControllerRole
+      objectReference: {fileID: 0}
+    - target: {fileID: 11426326, guid: 2b3a4efa04a7cf2428e0835b20f15fdc, type: 3}
+      propertyPath: m_viveRole.m_roleValueInt
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11426326, guid: 2b3a4efa04a7cf2428e0835b20f15fdc, type: 3}
+      propertyPath: m_viveRole.m_roleValueName
+      value: Device1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11426326, guid: 2b3a4efa04a7cf2428e0835b20f15fdc, type: 3}
+      propertyPath: m_viveRole.m_roleTypeFullName
+      value: HTC.UnityPlugin.Vive.DeviceRole
+      objectReference: {fileID: 0}
+    - target: {fileID: 11472020, guid: 2b3a4efa04a7cf2428e0835b20f15fdc, type: 3}
+      propertyPath: m_viveRole.m_roleTypeFullName
+      value: HTC.UnityPlugin.Vive.ControllerRole
+      objectReference: {fileID: 0}
+    - target: {fileID: 11472020, guid: 2b3a4efa04a7cf2428e0835b20f15fdc, type: 3}
+      propertyPath: m_onIsValidChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b3a4efa04a7cf2428e0835b20f15fdc, type: 3}
 --- !u!4 &670985249 stripped
