@@ -16,7 +16,7 @@ public class LaserMeter : MonoBehaviour
     Transform marker;
 
     [SerializeField]
-    float distance;
+    protected float distance;
 
     RaycastHit hit;
     [SerializeField]
@@ -26,6 +26,7 @@ public class LaserMeter : MonoBehaviour
 
     [SerializeField]
     TMP_Text display;
+
 
     // Start is called before the first frame update
     void Start()
@@ -83,6 +84,10 @@ public class LaserMeter : MonoBehaviour
         {
             marker.position = hit.point;
             marker.rotation = Quaternion.FromToRotation(transform.up, hit.normal) * transform.rotation;
+        }
+        else
+        {
+            marker.position = origin.position;
         }
     }
 }
