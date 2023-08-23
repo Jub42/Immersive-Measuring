@@ -55,6 +55,7 @@ public class LaserMeter : MonoBehaviour
 
             // do something
             // create new distance!
+            //Measurement m1 = Formulary.CalculateDistance(string, Coord, Coord);
             Measurement m = new Distance(IMTIDHandler.GetID(), 
                 new Coordinate(origin.position.x, origin.position.y, origin.position.z),
                 new Coordinate(marker.position.x, marker.position.y, marker.position.z),

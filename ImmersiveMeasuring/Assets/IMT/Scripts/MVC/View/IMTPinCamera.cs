@@ -5,7 +5,10 @@ using UnityEngine;
 public class IMTPinCamera : MonoBehaviour
 {
     [SerializeField]
-    Camera camera;
+    Transform camera;
+
+    [SerializeField]
+    GameObject display;
 
     [SerializeField]
     Transform originMarker;
@@ -28,18 +31,19 @@ public class IMTPinCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //transform.position = ;
-        transform.LookAt(targetMarker.position);
+        Vector3 offset = (originMarker.position - targetMarker.position).normalized * cameraOffset;    
+        camera.position = targetMarker.position + offset;
+        camera.LookAt(targetMarker.position);
 
-        //Debug.DrawLine();
+        Debug.DrawLine(targetMarker.position, targetMarker.position + offset, Color.blue);
 
         if (Vector3.Distance(originMarker.position, targetMarker.position) > threshold)
         {
-            gameObject.SetActive(true);
+            display.SetActive(true);
         }
         else
         {
-            gameObject.SetActive(false);
+            display.SetActive(false);
         }
     }
 
