@@ -87,6 +87,7 @@ public class IMTDataCube : MonoBehaviour
     {
         // Measurement type ? enum?
         // select item corresponding to measurement type
+        SelectIcon(measurement);
     }
 
     // Update is called once per frame
@@ -109,13 +110,14 @@ public class IMTDataCube : MonoBehaviour
 
         switch (m)
         {
-            case MeasurementUtility.Distance:
-                iconList[2].gameObject.SetActive(true);
+            case Distance:
+                iconList[3].gameObject.SetActive(true);
                 Debug.Log("Distance Icon Selected.");
                 break;
 
             default:
-                Debug.Log("Uff!");
+                iconList[0].gameObject.SetActive(true);
+                Debug.Log("Empty Icon Selected.");
                 break;
         }
     }
