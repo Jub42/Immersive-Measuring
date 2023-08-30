@@ -1,4 +1,4 @@
-﻿//========= Copyright 2016-2022, HTC Corporation. All rights reserved. ===========
+﻿//========= Copyright 2016-2023, HTC Corporation. All rights reserved. ===========
 
 using HTC.UnityPlugin.Utility;
 using HTC.UnityPlugin.VRModuleManagement;
@@ -146,7 +146,8 @@ namespace HTC.UnityPlugin.Vive
             else
             {
                 rightIndex = VRModule.GetRightControllerDeviceIndex();
-                if (rightIndex >= deviceCount || RoleMap.IsDeviceConnectedAndBound(rightIndex))
+                var rightIndexState = VRModule.GetCurrentDeviceState(rightIndex);
+                if (!rightIndexState.isConnected || RoleMap.IsDeviceBound(rightIndexState.serialNumber))
                 {
                     rightIndex = VRModule.INVALID_DEVICE_INDEX;
                 }
@@ -159,7 +160,8 @@ namespace HTC.UnityPlugin.Vive
             else
             {
                 leftIndex = VRModule.GetLeftControllerDeviceIndex();
-                if (leftIndex >= deviceCount || RoleMap.IsDeviceConnectedAndBound(leftIndex))
+                var leftIndexState = VRModule.GetCurrentDeviceState(leftIndex);
+                if (!leftIndexState.isConnected || RoleMap.IsDeviceBound(leftIndexState.serialNumber))
                 {
                     leftIndex = VRModule.INVALID_DEVICE_INDEX;
                 }
@@ -172,7 +174,7 @@ namespace HTC.UnityPlugin.Vive
                 {
                     if (i == rightIndex || i == leftIndex) { continue; }
                     var state = VRModule.GetCurrentDeviceState(i);
-                    if (state.deviceClass != VRModuleDeviceClass.Controller) { continue; }
+                    if (!state.isConnected || state.deviceClass != VRModuleDeviceClass.Controller) { continue; }
                     if (RoleMap.IsDeviceBound(state.serialNumber)) { continue; }
                     m_sortedDeviceList.Add(i);
                 }

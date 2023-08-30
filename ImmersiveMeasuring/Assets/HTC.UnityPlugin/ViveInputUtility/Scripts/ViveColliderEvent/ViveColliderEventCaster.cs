@@ -1,4 +1,4 @@
-﻿//========= Copyright 2016-2022, HTC Corporation. All rights reserved. ===========
+﻿//========= Copyright 2016-2023, HTC Corporation. All rights reserved. ===========
 
 using HTC.UnityPlugin.ColliderEvent;
 using HTC.UnityPlugin.Utility;
@@ -54,8 +54,8 @@ namespace HTC.UnityPlugin.Vive
         {
             buttonEventDataList.Add(new ViveColliderButtonEventData(this, m_buttonTrigger, ColliderButtonEventData.InputButton.Trigger));
             if (m_buttonPadOrStick != ControllerButton.None) { buttonEventDataList.Add(new ViveColliderButtonEventData(this, m_buttonPadOrStick, ColliderButtonEventData.InputButton.PadOrStick)); }
-            if (m_buttonPadOrStick != ControllerButton.None) { buttonEventDataList.Add(new ViveColliderButtonEventData(this, m_buttonFunctionKey, ColliderButtonEventData.InputButton.FunctionKey)); }
-            if (m_buttonPadOrStick != ControllerButton.None) { buttonEventDataList.Add(new ViveColliderButtonEventData(this, m_buttonGripOrHandTrigger, ColliderButtonEventData.InputButton.GripOrHandTrigger)); }
+            if (m_buttonGripOrHandTrigger != ControllerButton.None) { buttonEventDataList.Add(new ViveColliderButtonEventData(this, m_buttonFunctionKey, ColliderButtonEventData.InputButton.FunctionKey)); }
+            if (m_buttonFunctionKey != ControllerButton.None) { buttonEventDataList.Add(new ViveColliderButtonEventData(this, m_buttonGripOrHandTrigger, ColliderButtonEventData.InputButton.GripOrHandTrigger)); }
 
             FilterOutAssignedButton();
 

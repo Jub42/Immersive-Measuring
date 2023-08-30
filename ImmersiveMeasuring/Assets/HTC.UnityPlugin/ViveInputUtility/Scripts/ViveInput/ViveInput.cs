@@ -1,4 +1,4 @@
-﻿//========= Copyright 2016-2022, HTC Corporation. All rights reserved. ===========
+﻿//========= Copyright 2016-2023, HTC Corporation. All rights reserved. ===========
 
 using HTC.UnityPlugin.Utility;
 using HTC.UnityPlugin.VRModuleManagement;
@@ -58,7 +58,7 @@ namespace HTC.UnityPlugin.Vive
 
         // button alias
         BKey = Menu,
-        BkeyTouch = MenuTouch,
+        BKeyTouch = MenuTouch,
         OuterFaceButton = Menu, // 7
         OuterFaceButtonTouch = MenuTouch, // 9
         InnerFaceButton = AKey, // 12
@@ -126,6 +126,9 @@ namespace HTC.UnityPlugin.Vive
         [Obsolete]
         [HideInInspector]
         JoystickToucn = 48,
+        [Obsolete]
+        [HideInInspector]
+        BkeyTouch = BKeyTouch,
     }
 
     public enum ControllerAxis

@@ -38,7 +38,7 @@ public class LaserMeter : MonoBehaviour
     void Update()
     {
         distance = Vector3.Distance(origin.position, marker.position);
-        //display.text = distance.ToString();
+        //display.text = interactionDistance.ToString();
 
         // Check for isGrabbed
 
@@ -54,7 +54,7 @@ public class LaserMeter : MonoBehaviour
             // Hook for Button // central definition point
 
             // do something
-            // create new distance!
+            // create new interactionDistance!
             //Measurement m1 = Formulary.CalculateDistance(string, Coord, Coord);
             Measurement m = new Distance(IMTIDHandler.GetID(), 
                 new Coordinate(origin.position.x, origin.position.y, origin.position.z),

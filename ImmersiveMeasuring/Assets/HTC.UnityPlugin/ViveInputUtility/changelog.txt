@@ -1,5 +1,50 @@
-﻿# Vive Input Utility for Unity - v1.16.0
-Copyright (c) 2016-2022, HTC Corporation. All rights reserved.
+﻿# Vive Input Utility for Unity - v1.18.3
+Copyright (c) 2016-2023, HTC Corporation. All rights reserved.
+
+
+## Changes for v1.18.3:
+
+* Changes & Fixes
+  - Fix unable to get controller button on OpenVR(SteamVR) platform
+    - Seems latest Unity XR Plugin chages behaviour causes not actvating SteamVRv2Module correctly
+  - Now recommanded settings button will show up in VIUSettings if there's ignored settings
+  - Fix ViveColliderEventCaster button not working in some cases
+  - Fix ControllerButton.BKeyTouch typo
+
+
+## Changes for v1.18.2:
+
+* Bug Fixes
+  - Fix Meta Pro controller input not handled when using latest Oculus plugin
+  - Fix unable to enable platform support in VIU Settings when using latest Unity XR Plugin Management
+
+
+## Changes for v1.18.1:
+
+* Changes
+  - Update compatibility with com.unity.xr.openxr 1.4.2
+  - Update compatibility with Oculus Integration v50
+    - Handle removal of OVR Avatar
+    - Add Quest Pro & Touch Pro support
+  - Deprecate old Oculus graphics & quality recommended settings check on newer version
+
+* Bug Fixes
+  - Fix GetPadPressVector/GetPadTouchVector always return zero value
+  - Fix missing controller models after suspend/resume
+  - Fix Focus 3 controller not recoginzed in OpenXR mode
+
+
+## Changes for v1.17.0:
+
+* Changes
+  - Now support Focus 3 Tracker through [VBS](https://business.vive.com/us/support/vbs/category_howto/vive-business-streaming.html)
+  - Now button for Focus 3 Tracker is mapping to ControllerButton.ApplicationMenu instead of ControllerButton.A
+  - Remove Graphic Jobs recommended settings for Wave
+    - According to Unity document, Graphics Jobs only supported on certain environment(Vulkan) on Android.
+
+* Bug Fixes
+  - Fix Grabbable object with PoseFreezer calculating wrong pose when the object root is not at (0,0,0)
+  - Fix device status for WaveHandTracking doesn't reset correctly
 
 
 ## Changes for v1.16.0:

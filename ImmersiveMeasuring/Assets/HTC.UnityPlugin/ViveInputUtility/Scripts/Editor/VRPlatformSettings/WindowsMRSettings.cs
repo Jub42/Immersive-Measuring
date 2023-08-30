@@ -1,4 +1,4 @@
-//========= Copyright 2016-2022, HTC Corporation. All rights reserved. ===========
+//========= Copyright 2016-2023, HTC Corporation. All rights reserved. ===========
 
 using HTC.UnityPlugin.VRModuleManagement;
 using System;
@@ -78,7 +78,7 @@ namespace HTC.UnityPlugin.Vive
                 get
                 {
 #if UNITY_2019_3_OR_NEWER
-                    return canSupport && VIUSettings.activateUnityXRModule && XRPluginManagementUtils.IsXRLoaderEnabled(WINDOWSMR_XR_LOADER_NAME, requirdPlatform);
+                    return canSupport && VIUSettings.activateUnityXRModule && XRPluginManagementUtils.IsXRLoaderEnabled(WINDOWSMR_XR_LOADER_NAME, WINDOWSMR_XR_LOADER_CLASS_NAME, requirdPlatform);
 #elif UNITY_2018_2_OR_NEWER
                     return canSupport && VIUSettings.activateUnityNativeVRModule && WindowsMRSDK.enabled;
 #else

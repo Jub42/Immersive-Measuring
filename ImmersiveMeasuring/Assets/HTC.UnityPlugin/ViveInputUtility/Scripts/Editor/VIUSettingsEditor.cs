@@ -1,4 +1,4 @@
-﻿//========= Copyright 2016-2022, HTC Corporation. All rights reserved. ===========
+﻿//========= Copyright 2016-2023, HTC Corporation. All rights reserved. ===========
 
 using HTC.UnityPlugin.Utility;
 using HTC.UnityPlugin.VRModuleManagement;
@@ -1045,7 +1045,7 @@ namespace HTC.UnityPlugin.Vive
 
         private static void ShowCheckRecommendedSettingsButton()
         {
-            if (VIUVersionCheck.notifiedSettingsCount <= 0) { return; }
+            if (VIUVersionCheck.notifiedSettingsCount == 0 && VIUVersionCheck.ignoredSettingsCount == 0) { return; }
 
             if (GUILayout.Button("View Recommended Settings", GUILayout.ExpandWidth(false)))
             {
