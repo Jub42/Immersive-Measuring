@@ -9,7 +9,7 @@ public class IMTDataCube : MonoBehaviour
 {
     // Measurement // Get/Set etc.
     // Reference to measurement
-    Measurement measurement;
+    Measurement measurement = new EmptyMeasurement();
 
     // visualization -> MGrid? nope!
 
@@ -114,10 +114,12 @@ public class IMTDataCube : MonoBehaviour
                 iconList[3].gameObject.SetActive(true);
                 Debug.Log("Distance Icon Selected.");
                 break;
-
-            default:
+            case EmptyMeasurement:
                 iconList[0].gameObject.SetActive(true);
                 Debug.Log("Empty Icon Selected.");
+                break;
+            default:
+                Debug.Log("No Icon selected!");
                 break;
         }
     }

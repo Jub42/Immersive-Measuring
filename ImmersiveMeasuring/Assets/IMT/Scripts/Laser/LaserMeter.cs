@@ -27,7 +27,6 @@ public class LaserMeter : MonoBehaviour
     [SerializeField]
     TMP_Text display;
 
-
     // Start is called before the first frame update
     void Start()
     {
