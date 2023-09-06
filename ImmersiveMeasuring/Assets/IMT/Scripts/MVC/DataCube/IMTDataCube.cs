@@ -3,13 +3,14 @@ using MeasurementUtility;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class IMTDataCube : MonoBehaviour
 {
     // Measurement // Get/Set etc.
     // Reference to measurement
-    Measurement measurement = new EmptyMeasurement();
+    Measurement measurement;
 
     // visualization -> MGrid? nope!
 
@@ -40,6 +41,7 @@ public class IMTDataCube : MonoBehaviour
     [SerializeField]
     float result;
 
+
     public bool SetMeasurement(Measurement measurement)
     {
         Debug.Log("Set Measurement");
@@ -49,7 +51,7 @@ public class IMTDataCube : MonoBehaviour
             isLocked = true;
             this.result = (float)measurement.Result.Value;
 
-            SelectIcon(measurement);
+            //SelectIcon(measurement);
 
             return true;
         }
@@ -87,12 +89,14 @@ public class IMTDataCube : MonoBehaviour
     {
         // Measurement type ? enum?
         // select item corresponding to measurement type
-        SelectIcon(measurement);
+        measurement = new EmptyMeasurement();
+        //SelectIcon(measurement);
     }
 
     // Update is called once per frame
     void Update()
     {
+        SelectIcon(measurement);
         this.isGrabbed = GetComponent<GrabbableBase>().isGrabbed;
         if(isGrabbed)
         {
@@ -105,9 +109,10 @@ public class IMTDataCube : MonoBehaviour
     {
         for (int i = 0; i < iconList.Count; i++)
         {
+            // Debug.Log(i + " active: " + iconList[i].gameObject.activeSelf);
             iconList[i].gameObject.SetActive(false);
         }
-
+        
         switch (m)
         {
             case Distance:

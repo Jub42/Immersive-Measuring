@@ -22,6 +22,8 @@ public class LaserMeter : MonoBehaviour
     [SerializeField]
     float rayCastDistance = 10f;
 
+    [SerializeField]
+    int[] excludedLayers;
     int layerMask;
 
     [SerializeField]
@@ -30,7 +32,10 @@ public class LaserMeter : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        layerMask = LayerMask.GetMask("Ignore Raycast");
+        for(int i = 0; i < excludedLayers.Length; i++)
+        {
+            layerMask &= 1 << excludedLayers[i];
+        }
     }
 
     // Update is called once per frame
