@@ -13,7 +13,7 @@ public class IMTLine : MonoBehaviour
     CapsuleCollider collider;
 
     [SerializeField]
-    IMTDataCube dataCube;
+    public IMTDataCube dataCube;
 
     [SerializeField]
     Vector3 lineStart;

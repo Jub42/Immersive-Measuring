@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3287768271493806281}
   - component: {fileID: 3287768271493806280}
   m_Layer: 0
-  m_Name: Line + Hitbox
+  m_Name: Line
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -159,6 +159,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 862d29046ea2fc9409dd59b434b5305a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dataCube: {fileID: 0}
   lineStart: {x: 0, y: 0, z: -3}
   lineEnd: {x: 2, y: 2, z: 0}
   distance: 0
