@@ -6,13 +6,16 @@ using UnityEngine;
 public class IMTSpawner : MonoBehaviour
 {
     [SerializeField]
-    GameObject go;
+    GameObject goDataCube;
 
     [SerializeField]
     Transform spawnLocation;
 
     [SerializeField]
-    Transform parent;
+    Transform parentDataCube;
+
+    [SerializeField]
+    Transform parentVisualization;
 
     // Start is called before the first frame update
     void Start()
@@ -29,9 +32,9 @@ public class IMTSpawner : MonoBehaviour
     public void SpawnDataCube(Measurement m)
     {
         //TODO: Parent
-        //Instantiate(go, Vector3.zero, Quaternion.identity, parent);
+        //Instantiate(goDataCube, Vector3.zero, Quaternion.identity, parentDataCube);
         //TODO: naming
-        GameObject prefab = Instantiate(go, spawnLocation.position, Quaternion.identity, parent);
+        GameObject prefab = Instantiate(goDataCube, spawnLocation.position, Quaternion.identity, parentDataCube);
         prefab.GetComponent<IMTDataCube>().isPinned = false;
 
         if (IMTObjectCreationTool.InstantiateMeasurementOnGameObj(m, ref prefab))
@@ -39,5 +42,10 @@ public class IMTSpawner : MonoBehaviour
             prefab.name = m.ID;
             Debug.Log("DataCube spawned: " + m.GetType() + " " + prefab.name);
         }
+    }
+
+    public void SpawnVisualization()
+    {
+        // create Vis in corresponding pooler
     }
 }

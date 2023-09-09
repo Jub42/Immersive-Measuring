@@ -10,6 +10,9 @@ using UnityEngine;
 public class MGrid : MonoBehaviour
 {
     [SerializeField]
+    GameEvent onGridChangeEvent;
+    
+    [SerializeField]
     public List<GameObject> data = new List<GameObject>();
 
     [SerializeField, Range(1, 10)]
@@ -102,6 +105,7 @@ public class MGrid : MonoBehaviour
             }
 
         }
+        onGridChangeEvent.TriggerEvent();
     }
 
     private void OnTriggerEnter(Collider other)

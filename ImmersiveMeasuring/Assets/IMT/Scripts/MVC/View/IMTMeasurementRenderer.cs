@@ -31,7 +31,6 @@ public class IMTMeasurementRenderer : MonoBehaviour
         int children = transform.childCount;
         if (children == 0) return;
 
-        Debug.Log("möp");
         for (int i = 0; i < children; i++)
         {
             IMTDataCube dataCube = transform.GetChild(i).GetComponent<IMTDataCube>();
@@ -48,6 +47,11 @@ public class IMTMeasurementRenderer : MonoBehaviour
                 Debug.Log("Measurement not available!");
             }
         }
+    }
+
+    public void UpdateVisualization()
+    {
+
     }
 
     [Serializable]
