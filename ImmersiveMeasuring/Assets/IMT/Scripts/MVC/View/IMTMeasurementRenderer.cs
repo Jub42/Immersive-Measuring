@@ -1,18 +1,14 @@
 using MeasurementUtility;
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.SceneManagement;
 using UnityEngine;
 
 public class IMTMeasurementRenderer : MonoBehaviour
 {
-    //[SerializeField]
-    //Dictionary<Measurement,GameObject> prefabMeasurements;
-    public GameObject prefab;
-
     [SerializeField]
-    Transform parent;
+    //Dictionary<Measurement,GameObject> prefabMeasurements;
+    GameObject prefab;
+    [SerializeField]
+    GameObject parentDataCubes;
 
     // Start is called before the first frame update
     void Start()
@@ -27,31 +23,44 @@ public class IMTMeasurementRenderer : MonoBehaviour
     {
         // GetChildren from Pooler
         // Create corresponding render for each Measurement
-
-        int children = transform.childCount;
-        if (children == 0) return;
-
-        for (int i = 0; i < children; i++)
-        {
-            IMTDataCube dataCube = transform.GetChild(i).GetComponent<IMTDataCube>();
-            Measurement measurement = new EmptyMeasurement();
-
-            //if (dataCube.isPinned && dataCube.GetMeasurement(out measurement))
-            if (dataCube.GetMeasurement(out measurement))
-            {
-                GameObject go = Instantiate(prefab, Vector3.zero, Quaternion.identity, parent);
-                go.GetComponent<IMTLine>().dataCube = dataCube;
-            }
-            else
-            {
-                Debug.Log("Measurement not available!");
-            }
-        }
+        
+        
+    }
+    void FixedUpdate()
+    {
+        UpdateVisualization();
     }
 
     public void UpdateVisualization()
     {
+        int children = parentDataCubes.transform.childCount;
+        if (children != 0) 
+        {
+            for (int i = 0; i < children; i++)
+            {
+                Destroy(transform.GetChild(i).gameObject);
+            }
 
+            for (int i = 0; i < children; i++)
+            {
+                IMTDataCube dataCube = parentDataCubes.transform.GetChild(i).GetComponent<IMTDataCube>();
+
+                if (!dataCube.isPinned) continue;
+                
+                Measurement measurement = new EmptyMeasurement();
+
+                //if (dataCube.isPinned && dataCube.GetMeasurement(out measurement))
+                if (dataCube.GetMeasurement(out measurement))
+                {
+                    GameObject go = Instantiate(prefab, Vector3.zero, Quaternion.identity, this.gameObject.transform);
+                    go.GetComponent<IMTLine>().dataCube = dataCube;
+                }
+                else
+                {
+                    Debug.Log("Measurement not available!");
+                }
+            }
+        }   
     }
 
     [Serializable]

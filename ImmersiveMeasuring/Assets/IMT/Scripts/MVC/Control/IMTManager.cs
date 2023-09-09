@@ -51,7 +51,7 @@ public class IMTManager : MonoBehaviour
     // Create and add DataCube
     public void AddDataCube(Measurement m)
     {
-        //GameObject prefab = Instantiate(goDataCube, spawnLocation.position, Quaternion.identity);
+        //GameObject prefab = Instantiate(goDataCube, spawnLocationDataCube.position, Quaternion.identity);
         //if (IMTObjectCreationTool.InstantiateMeasurementOnGameObj(m, ref prefab))
         //{
             //storage.AddData(goDataCube);

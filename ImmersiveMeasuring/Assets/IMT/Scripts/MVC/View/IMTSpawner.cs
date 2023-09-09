@@ -9,13 +9,10 @@ public class IMTSpawner : MonoBehaviour
     GameObject goDataCube;
 
     [SerializeField]
-    Transform spawnLocation;
+    Transform spawnLocationDataCube;
 
     [SerializeField]
     Transform parentDataCube;
-
-    [SerializeField]
-    Transform parentVisualization;
 
     // Start is called before the first frame update
     void Start()
@@ -34,7 +31,7 @@ public class IMTSpawner : MonoBehaviour
         //TODO: Parent
         //Instantiate(goDataCube, Vector3.zero, Quaternion.identity, parentDataCube);
         //TODO: naming
-        GameObject prefab = Instantiate(goDataCube, spawnLocation.position, Quaternion.identity, parentDataCube);
+        GameObject prefab = Instantiate(goDataCube, spawnLocationDataCube.position, Quaternion.identity, parentDataCube);
         prefab.GetComponent<IMTDataCube>().isPinned = false;
 
         if (IMTObjectCreationTool.InstantiateMeasurementOnGameObj(m, ref prefab))
@@ -42,10 +39,5 @@ public class IMTSpawner : MonoBehaviour
             prefab.name = m.ID;
             Debug.Log("DataCube spawned: " + m.GetType() + " " + prefab.name);
         }
-    }
-
-    public void SpawnVisualization()
-    {
-        // create Vis in corresponding pooler
     }
 }
