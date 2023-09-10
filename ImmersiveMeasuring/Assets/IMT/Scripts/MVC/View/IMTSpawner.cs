@@ -28,9 +28,7 @@ public class IMTSpawner : MonoBehaviour
 
     public void SpawnDataCube(Measurement m)
     {
-        //TODO: Parent
         //Instantiate(goDataCube, Vector3.zero, Quaternion.identity, parentDataCube);
-        //TODO: naming
         GameObject prefab = Instantiate(goDataCube, spawnLocationDataCube.position, Quaternion.identity, parentDataCube);
         prefab.GetComponent<IMTDataCube>().isPinned = false;
 

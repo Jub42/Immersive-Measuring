@@ -9,15 +9,14 @@ using UnityEngine;
 public class IMTDataCube : MonoBehaviour
 {
     // Measurement // Get/Set etc.
-    // Reference to measurement
-    Measurement measurement;
+    // Reference to m
+    Measurement measurement = new EmptyMeasurement();
 
     // visualization -> MGrid? nope!
 
     // visibility
     // [SerializeField]
     // bool isVisible = true;
-
     bool isLocked = false;
     // Property
     public bool IsLocked
@@ -44,14 +43,14 @@ public class IMTDataCube : MonoBehaviour
 
     public bool SetMeasurement(Measurement measurement)
     {
-        Debug.Log("Set Measurement");
+        Debug.Log("Set Measurement" + measurement.ToJson());
         if (!isLocked)
         {
             this.measurement = measurement;
             isLocked = true;
             this.result = (float)measurement.Result.Value;
 
-            //SelectIcon(measurement);
+            Debug.Log("Hier! " + measurement.ToJson());
 
             return true;
         }
@@ -61,19 +60,15 @@ public class IMTDataCube : MonoBehaviour
         }     
     }
 
-    public bool GetMeasurement(out Measurement measurement)
+    public bool GetMeasurement(out Measurement m)
     {
+        m = this.measurement;
         if (isLocked)
-        {
-            measurement = this.measurement;
+        { 
             return true;
         }
         else
         {
-            //TODO:
-            // Empty Measurement
-            // evtl: null
-            measurement = new EmptyMeasurement();
             return false;
         }
     }
@@ -82,15 +77,6 @@ public class IMTDataCube : MonoBehaviour
     {
         // GameObjectEvent
         // Queue Task DataStorage
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        // Measurement type ? enum?
-        // select item corresponding to measurement type
-        measurement = new EmptyMeasurement();
-        //SelectIcon(measurement);
     }
 
     // Update is called once per frame
