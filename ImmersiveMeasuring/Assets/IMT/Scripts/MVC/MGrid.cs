@@ -22,7 +22,7 @@ public class MGrid : MonoBehaviour
     int maxBatchSize = 1;
 
     [SerializeField]
-    Transform offset; // origin
+    Transform offset; // originMarker
 
     [SerializeField]
     float spacing = 1f;

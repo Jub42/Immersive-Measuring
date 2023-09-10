@@ -10,10 +10,10 @@ public class LaserMeter : MonoBehaviour
     MeasurementGameEvent onMeasure;
 
     [SerializeField]
-    Transform origin;
+    Transform originMarker;
 
     [SerializeField]
-    Transform marker;
+    Transform targetMarker;
 
     [SerializeField]
     protected float distance;
@@ -23,8 +23,7 @@ public class LaserMeter : MonoBehaviour
     float rayCastDistance = 10f;
 
     [SerializeField]
-    int[] excludedLayers;
-    int layerMask;
+    LayerMask excludedLayers;
 
     [SerializeField]
     TMP_Text display;
@@ -32,16 +31,13 @@ public class LaserMeter : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        for(int i = 0; i < excludedLayers.Length; i++)
-        {
-            layerMask &= 1 << excludedLayers[i];
-        }
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        distance = Vector3.Distance(origin.position, marker.position);
+        distance = Vector3.Distance(originMarker.position, targetMarker.position);
         //display.text = interactionDistance.ToString();
 
         // Check for isGrabbed
@@ -61,8 +57,8 @@ public class LaserMeter : MonoBehaviour
             // create new interactionDistance!
             //Measurement m1 = Formulary.CalculateDistance(string, Coord, Coord);
             Measurement m = new Distance(IMTIDHandler.GetID(), 
-                new Coordinate(origin.position.x, origin.position.y, origin.position.z),
-                new Coordinate(marker.position.x, marker.position.y, marker.position.z),
+                new Coordinate(originMarker.position.x, originMarker.position.y, originMarker.position.z),
+                new Coordinate(targetMarker.position.x, targetMarker.position.y, targetMarker.position.z),
                 distance);
 
             onMeasure.TriggerEvent(m);
@@ -73,26 +69,26 @@ public class LaserMeter : MonoBehaviour
     {
         //if (Input.GetMouseButton(0))
         //{
-        //    Ray ray = new Ray(origin.position, origin.forward);
+        //    Ray ray = new Ray(originMarker.position, originMarker.forward);
 
         //    if (Physics.Raycast(ray, out hit, rayCastDistance, ~layerMask))
         //    {
         //        Debug.Log("Test");
-        //        marker.position = hit.point;
-        //        marker.rotation = Quaternion.FromToRotation(transform.up, hit.normal) * transform.rotation;
+        //        targetMarker.position = hit.point;
+        //        targetMarker.rotation = Quaternion.FromToRotation(transform.up, hit.normal) * transform.rotation;
         //    }
         //}
 
-        Ray ray = new Ray(origin.position, origin.forward);
+        Ray ray = new Ray(originMarker.position, originMarker.forward);
 
-        if (Physics.Raycast(ray, out hit, rayCastDistance, ~layerMask))
+        if (Physics.Raycast(ray, out hit, rayCastDistance, ~excludedLayers))
         {
-            marker.position = hit.point;
-            marker.rotation = Quaternion.FromToRotation(transform.up, hit.normal) * transform.rotation;
+            targetMarker.position = hit.point;
+            targetMarker.rotation = Quaternion.FromToRotation(transform.up, hit.normal) * transform.rotation;
         }
         else
         {
-            marker.position = origin.position;
+            targetMarker.position = originMarker.position;
         }
     }
 }
