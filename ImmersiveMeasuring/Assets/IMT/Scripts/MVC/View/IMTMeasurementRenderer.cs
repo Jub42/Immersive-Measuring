@@ -28,19 +28,24 @@ public class IMTMeasurementRenderer : MonoBehaviour
     }
     void FixedUpdate()
     {
-        UpdateVisualization();
+
     }
 
     public void UpdateVisualization()
     {
         int children = parentDataCubes.transform.childCount;
+        Debug.Log(children + " existing DataCubes");
+
         if (children != 0) 
         {
-            for (int i = 0; i < children; i++)
+            if(this.transform.childCount != 0)
             {
-                Destroy(transform.GetChild(i).gameObject);
+                for (int i = 0; i < children; i++)
+                {
+                    Destroy(transform.GetChild(i).gameObject);
+                }
             }
-
+            
             for (int i = 0; i < children; i++)
             {
                 IMTDataCube dataCube = parentDataCubes.transform.GetChild(i).GetComponent<IMTDataCube>();

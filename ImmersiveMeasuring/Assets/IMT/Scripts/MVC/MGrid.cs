@@ -102,10 +102,12 @@ public class MGrid : MonoBehaviour
                 // handle in VisualContainer?
                 obj.transform.up = up;
                 obj.transform.forward = forward;
+
+                onGridChangeEvent.TriggerEvent();
             }
 
         }
-        onGridChangeEvent.TriggerEvent();
+        // onGridChangeEvent.TriggerEvent(); Wrong position!
     }
 
     private void OnTriggerEnter(Collider other)

@@ -39,12 +39,18 @@ public class IMTLine : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!dataCube.isPinned)
+        {
+            Destroy(this);
+        }
+
         Measurement measurement = new EmptyMeasurement();
 
         if (dataCube.GetMeasurement(out measurement))
         {
             if (dataCube.GetMeasurement(out measurement))
             {
+                //TODO: GetCoords !
                 JObject jobj = measurement.ToJObject();
                 Coordinate c1 = new Coordinate((JObject)jobj["Distance"]["Start"]);
                 Coordinate c2 = new Coordinate((JObject)jobj["Distance"]["End"]);
