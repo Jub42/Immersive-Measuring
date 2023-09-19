@@ -1052,7 +1052,7 @@ Transform:
   m_GameObject: {fileID: 1387697447}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -2.7}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.38, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1402,6 +1402,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1929293717}
     m_Modifications:
+    - target: {fileID: 6762828884037877814, guid: 93c1718b31a1db54abb7d967eaf8d23b, type: 3}
+      propertyPath: m_text
+      value: '25
+
+'
+      objectReference: {fileID: 0}
     - target: {fileID: 8070254280395970900, guid: 93c1718b31a1db54abb7d967eaf8d23b, type: 3}
       propertyPath: m_Name
       value: MeasurementRange

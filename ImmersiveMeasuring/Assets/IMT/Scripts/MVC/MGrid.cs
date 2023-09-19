@@ -15,6 +15,8 @@ public class MGrid : MonoBehaviour
     [SerializeField]
     public List<GameObject> data = new List<GameObject>();
 
+    int lastDataCount = 0;
+
     [SerializeField, Range(1, 10)]
     int maxRows = 1;
     [SerializeField, Range(1, 10)]
@@ -38,14 +40,24 @@ public class MGrid : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        int i = data.Count;
     }
 
     // Update is called once per frame
     void Update()
     {
         // adjust collider
-        UpdateVisualization();
+        
+    }
+
+    void FixedUpdate()
+    {
+        if (data.Count != lastDataCount)
+        {
+            onGridChangeEvent.TriggerEvent();
+            UpdateVisualization();
+        }
+        
+        lastDataCount= data.Count;
     }
 
     public void UpdateMeasurements()
@@ -57,6 +69,8 @@ public class MGrid : MonoBehaviour
 
     void UpdateVisualization()
     {
+        //TODO: Set DataCube kinetic 
+
         maxBatchSize = maxRows * maxCols;
 
         GameObject obj = null;
@@ -83,6 +97,9 @@ public class MGrid : MonoBehaviour
 
             //Debug.Log("grabbed: " + isGrabbed + "bounds: " + isInBounds + "pinned: " + isPinned + "");
 
+            // DataCube is added to data without set it's position.
+            // This way the data.Count changes and the preexisting DataCubes are placed, while the
+            // first position is not occupied by a DataCube.
             if (!isGrabbed && isInBounds && isPinned)
             {
                 rb = obj.GetComponent<Rigidbody>();
@@ -90,10 +107,6 @@ public class MGrid : MonoBehaviour
                 rb.isKinematic = true;              
 
                 v = new Vector3(i % maxCols, -(i / maxCols) % maxRows, -i / maxBatchSize) * spacing;
-
-                Debug.Log("i: " + i);
-                Debug.Log("-(i / maxCols): " + -(i / maxCols));
-                Debug.Log(v);
                 
                 // rotate around world axis
                 v = Quaternion.Euler(xRotation, yRotation, zRotation) * v;
@@ -102,18 +115,18 @@ public class MGrid : MonoBehaviour
                 // handle in VisualContainer?
                 obj.transform.up = up;
                 obj.transform.forward = forward;
-
-                onGridChangeEvent.TriggerEvent();
             }
 
         }
-        // onGridChangeEvent.TriggerEvent(); Wrong position!
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if(other.GetComponent<IMTDataCube>() != null)
         {
+            Rigidbody rb = other.GetComponent<Rigidbody>();
+            rb.useGravity = false;
+            rb.isKinematic = true;
             data.Add(other.gameObject);
         }
     }

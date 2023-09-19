@@ -83,6 +83,7 @@ public class IMTDataCube : MonoBehaviour
     void Update()
     {
         SelectIcon(measurement);
+
         this.isGrabbed = GetComponent<GrabbableBase>().isGrabbed;
         if(isGrabbed)
         {

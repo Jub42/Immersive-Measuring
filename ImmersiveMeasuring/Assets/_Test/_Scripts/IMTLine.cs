@@ -48,15 +48,14 @@ public class IMTLine : MonoBehaviour
 
         if (dataCube.GetMeasurement(out measurement))
         {
-            if (dataCube.GetMeasurement(out measurement))
-            {
-                //TODO: GetCoords !
-                JObject jobj = measurement.ToJObject();
-                Coordinate c1 = new Coordinate((JObject)jobj["Distance"]["Start"]);
-                Coordinate c2 = new Coordinate((JObject)jobj["Distance"]["End"]);
-                lineStart = new Vector3((float)c1.x, (float)c1.y, (float)c1.z);
-                lineEnd = new Vector3((float)c2.x, (float)c2.y, (float)c2.z);
-            }
+            Coordinate[] coords = measurement.GetCoordinates();
+            Coordinate c1 = coords[0];
+            Coordinate c2 = coords[1];
+            lineStart = new Vector3((float)c1.x, (float)c1.y, (float)c1.z);
+            lineEnd = new Vector3((float)c2.x, (float)c2.y, (float)c2.z);
+
+            Debug.Log("lineStart: " + lineStart);
+            Debug.Log("lineEnd: " + lineEnd);
 
 
             lineRenderer = GetComponent<LineRenderer>();

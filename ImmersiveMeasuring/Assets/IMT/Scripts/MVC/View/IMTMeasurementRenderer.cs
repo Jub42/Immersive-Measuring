@@ -33,37 +33,40 @@ public class IMTMeasurementRenderer : MonoBehaviour
 
     public void UpdateVisualization()
     {
-        int children = parentDataCubes.transform.childCount;
-        Debug.Log(children + " existing DataCubes");
+        int dataCubeCount = parentDataCubes.transform.childCount;
+        Debug.Log("existing DataCubes: " + dataCubeCount);
 
-        if (children != 0) 
+        if (this.transform.childCount != 0)
         {
-            if(this.transform.childCount != 0)
+            for (int i = 0; i < dataCubeCount; i++)
             {
-                for (int i = 0; i < children; i++)
-                {
-                    Destroy(transform.GetChild(i).gameObject);
-                }
+                Debug.Log("Name: " + transform.GetChild(i).gameObject.name);
+                Destroy(transform.GetChild(i).gameObject);
             }
-            
-            for (int i = 0; i < children; i++)
+        }
+
+        if (dataCubeCount != 0) 
+        {
+            for (int i = 0; i < dataCubeCount; i++)
             {
                 IMTDataCube dataCube = parentDataCubes.transform.GetChild(i).GetComponent<IMTDataCube>();
 
-                if (!dataCube.isPinned) continue;
-                
-                Measurement measurement = new EmptyMeasurement();
+                if (dataCube.isPinned)
+                {
+                    Measurement measurement = new EmptyMeasurement();
 
-                //if (dataCube.isPinned && dataCube.GetMeasurement(out measurement))
-                if (dataCube.GetMeasurement(out measurement))
-                {
-                    GameObject go = Instantiate(prefab, Vector3.zero, Quaternion.identity, this.gameObject.transform);
-                    go.GetComponent<IMTLine>().dataCube = dataCube;
-                }
-                else
-                {
-                    Debug.Log("Measurement not available!");
-                }
+                    //if (dataCube.isPinned && dataCube.GetMeasurement(out measurement))
+                    if (dataCube.GetMeasurement(out measurement))
+                    {
+                        GameObject go = Instantiate(prefab, Vector3.zero, Quaternion.identity, transform);
+                        go.GetComponent<IMTLine>().dataCube = dataCube;
+                        go.name = dataCube.name + " | Line";
+                    }
+                    else
+                    {
+                        Debug.Log("Measurement not available!");
+                    }
+                } 
             }
         }   
     }
