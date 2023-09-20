@@ -30,57 +30,52 @@ public class IMTLine : MonoBehaviour
     [SerializeField]
     float width = .025f;
 
-    void Awake()
-    {
-        
-
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        if (!dataCube.isPinned)
+        if (dataCube.isPinned)
         {
-            Destroy(this);
+            Measurement measurement = new EmptyMeasurement();
+
+            if (dataCube.GetMeasurement(out measurement))
+            {
+                Coordinate[] coords = measurement.GetCoordinates();
+                Coordinate c1 = coords[0];
+                Coordinate c2 = coords[1];
+                lineStart = new Vector3((float)c1.x, (float)c1.y, (float)c1.z);
+                lineEnd = new Vector3((float)c2.x, (float)c2.y, (float)c2.z);
+
+                Debug.Log("lineStart: " + lineStart);
+                Debug.Log("lineEnd: " + lineEnd);
+
+
+                lineRenderer = GetComponent<LineRenderer>();
+                collider = GetComponent<CapsuleCollider>();
+
+                if (lineStart == null && lineEnd == null) return;
+
+                lineRenderer.widthMultiplier = width;
+                lineRenderer.SetPosition(0, lineStart);
+                lineRenderer.SetPosition(1, lineEnd);
+
+                Vector3 newPosition = (lineEnd + lineStart) * .5f;
+                Debug.Log(lineEnd);
+                Debug.Log(lineStart);
+                Debug.Log(newPosition);
+
+                collider.radius = radius;
+                collider.height = length * Vector3.Distance(lineStart, lineEnd);
+                collider.direction = 2; // z direction
+                collider.center = Vector3.zero;
+                collider.isTrigger = true;
+                transform.position = newPosition;
+                transform.LookAt(lineEnd);
+
+                // place Pins ?
+            }
         }
-
-        Measurement measurement = new EmptyMeasurement();
-
-        if (dataCube.GetMeasurement(out measurement))
+        else
         {
-            Coordinate[] coords = measurement.GetCoordinates();
-            Coordinate c1 = coords[0];
-            Coordinate c2 = coords[1];
-            lineStart = new Vector3((float)c1.x, (float)c1.y, (float)c1.z);
-            lineEnd = new Vector3((float)c2.x, (float)c2.y, (float)c2.z);
-
-            Debug.Log("lineStart: " + lineStart);
-            Debug.Log("lineEnd: " + lineEnd);
-
-
-            lineRenderer = GetComponent<LineRenderer>();
-            collider = GetComponent<CapsuleCollider>();
-
-            if (lineStart == null && lineEnd == null) return;
-
-            lineRenderer.widthMultiplier = width;
-            lineRenderer.SetPosition(0, lineStart);
-            lineRenderer.SetPosition(1, lineEnd);
-
-            Vector3 newPosition = (lineEnd + lineStart) * .5f;
-            Debug.Log(lineEnd);
-            Debug.Log(lineStart);
-            Debug.Log(newPosition);
-
-            collider.radius = radius;
-            collider.height = length * Vector3.Distance(lineStart, lineEnd);
-            collider.direction = 2; // z direction
-            collider.center = Vector3.zero;
-            collider.isTrigger = true;
-            transform.position = newPosition;
-            transform.LookAt(lineEnd);
-
-            // place Pins
-        }
+            Destroy(this.gameObject);
+        }    
     }
 }
