@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class IMTDataCube : MonoBehaviour
+public class IMTDataCube : MonoBehaviour, IMTHoverable
 {
     // Measurement // Get/Set etc.
     // Reference to m
@@ -114,5 +114,10 @@ public class IMTDataCube : MonoBehaviour
                 Debug.Log("No Icon selected!");
                 break;
         }
+    }
+
+    public void OnHover()
+    {
+        throw new NotImplementedException();
     }
 }

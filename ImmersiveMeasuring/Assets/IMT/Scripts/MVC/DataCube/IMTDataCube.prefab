@@ -581,6 +581,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: db1e807699e277745804212ce70afa8c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a8cd65a7c72965943bff64270e1c0622, type: 2}
     - target: {fileID: 919132149155446097, guid: db1e807699e277745804212ce70afa8c, type: 3}
       propertyPath: m_Name
       value: IMT_Icon_Arc
@@ -656,6 +660,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: de40c022493e5fb439ca9287f9aa737f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 06d54993d11211344883d287f28addc8, type: 2}
     - target: {fileID: 919132149155446097, guid: de40c022493e5fb439ca9287f9aa737f, type: 3}
       propertyPath: m_Name
       value: IMT_Icon_Distance
@@ -731,6 +739,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: fb31692a27670554aa95d9c3caca64df, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b41d30eee79b62740b4e4a6ffafde44a, type: 2}
     - target: {fileID: 919132149155446097, guid: fb31692a27670554aa95d9c3caca64df, type: 3}
       propertyPath: m_Name
       value: IMT_Icon_Empty
@@ -802,6 +814,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 21ce2bb726052c140bbd930a0ce15135, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 984bb1e12e1b1f24cbd79ee307affa50, type: 2}
     - target: {fileID: 919132149155446097, guid: 21ce2bb726052c140bbd930a0ce15135, type: 3}
       propertyPath: m_Name
       value: IMT_Icon_Area
@@ -877,6 +893,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 17ca483c7b3b79d4da8f6d66c816aeae, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b8674006c59a3ba4892e48bdc9810739, type: 2}
     - target: {fileID: 919132149155446097, guid: 17ca483c7b3b79d4da8f6d66c816aeae, type: 3}
       propertyPath: m_Name
       value: IMT_DataCube

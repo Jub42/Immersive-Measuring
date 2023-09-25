@@ -4,6 +4,7 @@ using HTC.UnityPlugin.Vive;
 using HTC.UnityPlugin.ColliderEvent;
 using MeasurementUtility;
 
+[RequireComponent(typeof(LineRenderer))]
 public class LaserMeter : MonoBehaviour
 {
     [SerializeField]
@@ -14,6 +15,10 @@ public class LaserMeter : MonoBehaviour
 
     [SerializeField]
     Transform targetMarker;
+
+    LineRenderer lineRenderer;
+    [SerializeField]
+    float lineWidth = .025f;
 
     [SerializeField]
     protected float distance;
@@ -31,12 +36,16 @@ public class LaserMeter : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        lineRenderer = GetComponent<LineRenderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        lineRenderer.widthMultiplier = lineWidth;
+        lineRenderer.SetPosition(0, originMarker.position);
+        lineRenderer.SetPosition(1, targetMarker.position);
+
         distance = Vector3.Distance(originMarker.position, targetMarker.position);
         //display.text = interactionDistance.ToString();
 

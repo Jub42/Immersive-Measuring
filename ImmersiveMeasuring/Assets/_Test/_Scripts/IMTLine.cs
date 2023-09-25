@@ -7,7 +7,7 @@ using Newtonsoft.Json.Linq;
 
 [RequireComponent(typeof(LineRenderer))]
 [RequireComponent(typeof(CapsuleCollider))]
-public class IMTLine : MonoBehaviour
+public class IMTLine : MonoBehaviour, IMTHoverable
 {
     LineRenderer lineRenderer;
     CapsuleCollider collider;
@@ -77,5 +77,10 @@ public class IMTLine : MonoBehaviour
         {
             Destroy(this.gameObject);
         }    
+    }
+
+    public void OnHover()
+    {
+        throw new System.NotImplementedException();
     }
 }
