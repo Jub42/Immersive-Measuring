@@ -89,7 +89,7 @@ public class LaserMeter : MonoBehaviour
 
         Ray ray = new Ray(originMarker.position, originMarker.forward);
 
-        if (Physics.Raycast(ray, out hit, rayCastDistance, excludedLayers))
+        if (Physics.Raycast(ray, out hit, rayCastDistance, ~excludedLayers))
         {
             targetMarker.position = hit.point;
             targetMarker.rotation = Quaternion.FromToRotation(transform.up, hit.normal) * transform.rotation;
