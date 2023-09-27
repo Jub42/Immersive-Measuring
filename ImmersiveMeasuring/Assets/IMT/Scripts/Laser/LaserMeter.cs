@@ -20,12 +20,11 @@ public class LaserMeter : MonoBehaviour
     [SerializeField]
     float lineWidth = .025f;
 
-    [SerializeField]
     protected float distance;
 
     RaycastHit hit;
     [SerializeField]
-    float rayCastDistance = 10f;
+    float rayCastDistance;
 
     [SerializeField]
     LayerMask excludedLayers;
@@ -57,8 +56,8 @@ public class LaserMeter : MonoBehaviour
             display.text = "padAxis = " + ViveInput.GetPadAxisEx(HandRole.RightHand); // location
         }
 
-        //if (ViveInput.GetPressDown(HandRole.RightHand, ControllerButton.Trigger) && GetComponent<GrabObserver>().grabbed)
-        if (Input.GetKeyDown("space"))
+        if (ViveInput.GetPressDown(HandRole.RightHand, ControllerButton.Trigger) && GetComponent<GrabObserver>().grabbed)
+        //if (Input.GetKeyDown("space"))
         {
             // Hook for Button // central definition point
 
@@ -95,9 +94,6 @@ public class LaserMeter : MonoBehaviour
             targetMarker.position = hit.point;
             targetMarker.rotation = Quaternion.FromToRotation(transform.up, hit.normal) * transform.rotation;
         }
-        else
-        {
-            targetMarker.position = originMarker.position;
-        }
+        
     }
 }

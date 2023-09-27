@@ -51,13 +51,8 @@ public class MGrid : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (data.Count != lastDataCount)
-        {
-            onGridChangeEvent.TriggerEvent();
-            UpdateVisualization();
-        }
+        UpdateGrid();
         
-        lastDataCount= data.Count;
     }
 
     public void UpdateMeasurements()
@@ -67,7 +62,7 @@ public class MGrid : MonoBehaviour
         // create gameobj data with Mlist
     }
 
-    void UpdateVisualization()
+    void UpdateGrid()
     {
         //TODO: Set DataCube kinetic 
 
@@ -128,6 +123,7 @@ public class MGrid : MonoBehaviour
             rb.useGravity = false;
             rb.isKinematic = true;
             data.Add(other.gameObject);
+            onGridChangeEvent.TriggerEvent();
         }
     }
     private void OnTriggerExit(Collider other)
@@ -139,6 +135,7 @@ public class MGrid : MonoBehaviour
             rb.isKinematic = false;
             //see datacube: other.GetComponent<IMTDataCube>().isPinned= false;
             data.Remove(other.gameObject);
+            onGridChangeEvent.TriggerEvent();
         }
     }
 
