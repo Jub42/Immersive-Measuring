@@ -29,7 +29,7 @@ public class IMTRaycast : MonoBehaviour
         Ray ray = new Ray(originMarker.position, originMarker.forward);
         RaycastHit hit;
 
-        if (Physics.Raycast(ray, out hit, Mathf.Infinity, ~excludedLayers))
+        if (Physics.Raycast(ray, out hit, rayCastDistance, ~excludedLayers))
         {
             targetMarker.position = hit.point;
             targetMarker.rotation = Quaternion.FromToRotation(transform.up, hit.normal) * transform.rotation;

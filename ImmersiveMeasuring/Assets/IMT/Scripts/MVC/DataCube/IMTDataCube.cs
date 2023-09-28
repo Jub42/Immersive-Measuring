@@ -40,6 +40,8 @@ public class IMTDataCube : MonoBehaviour, IMTHoverable
     [SerializeField]
     float result;
 
+    // Display
+
 
     public bool SetMeasurement(Measurement measurement)
     {
@@ -49,8 +51,6 @@ public class IMTDataCube : MonoBehaviour, IMTHoverable
             this.measurement = measurement;
             isLocked = true;
             this.result = (float)measurement.Result.Value;
-
-            Debug.Log("Hier! " + measurement.ToJson());
 
             return true;
         }

@@ -1,10 +1,13 @@
 using HTC.UnityPlugin.Vive;
+using MeasurementUtility;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class IMTLaserRangeFinder : MonoBehaviour
 {
+    TwoPointDistanceMeasure tool = new TwoPointDistanceMeasure("Distance Measure");
+
     [SerializeField]
     Transform originMarker;
     [SerializeField]
@@ -20,11 +23,20 @@ public class IMTLaserRangeFinder : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
-        if (ViveInput.GetPressDown(HandRole.RightHand, ControllerButton.Trigger) && GetComponent<GrabObserver>().grabbed)
+        if (Input.GetKeyDown("space"))
+        //if (ViveInput.GetPressDown(HandRole.RightHand, ControllerButton.Trigger) && GetComponent<GrabObserver>().grabbed)
         {
+            Coordinate[] c = {
+                new Coordinate(originMarker.position.x, originMarker.position.y, originMarker.position.z),
+                new Coordinate(targetMarker.position.x, targetMarker.position.y, targetMarker.position.z)};
+            tool.Measure(IMTIDHandler.GetID(), c);
+            Measurement m = tool.CreateMeasurement();
+            
+            Debug.Log(m);
 
+            onMeasure.TriggerEvent(m);
         }
     }
 }
