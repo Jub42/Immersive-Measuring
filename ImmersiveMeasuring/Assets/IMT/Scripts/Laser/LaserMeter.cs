@@ -56,8 +56,8 @@ public class LaserMeter : MonoBehaviour
             display.text = "padAxis = " + ViveInput.GetPadAxisEx(HandRole.RightHand); // location
         }
 
-        if (ViveInput.GetPressDown(HandRole.RightHand, ControllerButton.Trigger) && GetComponent<GrabObserver>().grabbed)
-        //if (Input.GetKeyDown("space"))
+        //if (ViveInput.GetPressDown(HandRole.RightHand, ControllerButton.Trigger) && GetComponent<GrabObserver>().grabbed)
+        if (Input.GetKeyDown("space"))
         {
             // Hook for Button // central definition point
 
