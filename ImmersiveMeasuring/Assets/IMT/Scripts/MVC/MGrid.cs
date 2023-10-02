@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using IMTEventSystem;
 
 // get objects and places it
 [RequireComponent(typeof(Collider))]

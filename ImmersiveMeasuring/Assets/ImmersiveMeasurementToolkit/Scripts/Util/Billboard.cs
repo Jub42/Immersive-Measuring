@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BillboardIcon : MonoBehaviour
+public class Billboard : MonoBehaviour
 {
     void Update()
     {
