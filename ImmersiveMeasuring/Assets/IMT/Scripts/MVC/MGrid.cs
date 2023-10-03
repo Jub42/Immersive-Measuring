@@ -7,7 +7,7 @@ using UnityEngine;
 using IMTEventSystem;
 
 // get objects and places it
-[RequireComponent(typeof(Collider))]
+[RequireComponent(typeof(BoxCollider))]
 public class MGrid : MonoBehaviour
 {
     [SerializeField]

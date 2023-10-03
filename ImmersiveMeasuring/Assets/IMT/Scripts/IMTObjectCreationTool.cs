@@ -31,4 +31,7 @@ public static class IMTObjectCreationTool
             return false;
         }
     }
+
+    //public static bool CreateEmptyGameObject(out GameObject obj)
+
 }
