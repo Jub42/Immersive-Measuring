@@ -18,6 +18,7 @@ public class IMTLineRenderer : MonoBehaviour
     void Start()
     {
         lineRenderer = GetComponent<LineRenderer>();
+        lineRenderer.enabled = true;
     }
 
     // Update is called once per frame

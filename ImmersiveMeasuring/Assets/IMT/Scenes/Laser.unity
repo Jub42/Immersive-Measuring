@@ -316,7 +316,15 @@ MonoBehaviour:
   spacing: 0.3
   warningThreshold: 0
   GridOrigin: {fileID: 1569761845}
-  data: []
+  data:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  showBackground: 1
+  height: 0.2
+  width: 0.2
+  backgroundOffset: {x: 0, y: 0, z: 0}
   material: {fileID: 2100000, guid: 984bb1e12e1b1f24cbd79ee307affa50, type: 2}
 --- !u!1 &1056454388
 GameObject:
@@ -760,6 +768,10 @@ PrefabInstance:
     - target: {fileID: 2124848908817030984, guid: 6ae52552c20c75847acdae6f32ec4a0c, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2124848908817030988, guid: 6ae52552c20c75847acdae6f32ec4a0c, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2124848908817030991, guid: 6ae52552c20c75847acdae6f32ec4a0c, type: 3}
       propertyPath: m_RootOrder
