@@ -27,7 +27,21 @@ namespace Util
 
         void Update()
         {
+            RefreshStatus();
+
             gameObject.transform.position = position;
+        }
+
+        void RefreshStatus()
+        {
+            if(content != null)
+            {
+                isOccupied = true;
+            }
+            if(content == null)
+            {
+                isOccupied = false;
+            }
         }
 
         public void SetCollider(Vector3 center, Vector3 size)
@@ -43,6 +57,7 @@ namespace Util
             this.position = position;
         }
 
+        //ontriggerstay controller -> reset position
         void ResetContentPosition()
         {
             if(isOccupied)
@@ -58,8 +73,6 @@ namespace Util
                 obj.transform.parent = this.transform;
                 content = obj;
                 ResetContentPosition();
-
-                isOccupied = true;
             }
             else
             {
@@ -67,19 +80,25 @@ namespace Util
             }
         }
         public GameObject GetContent() { return content; }
+        
+        // unnecessary
         void DeleteContent()
         {
             if (isOccupied)
             {
                 Destroy(content.gameObject);
                 content = null;
-                isOccupied = false;
             }
             else
             {
                 Debug.Log("There already is no content!");
             }
             
+        }
+        private void OnTriggerStay(Collider other)
+        {
+            //Outline/ hover
+            //Reset content position
         }
     }
 

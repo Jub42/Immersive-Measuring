@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//namespace
+
 [RequireComponent(typeof(IMTMeasurementContainer))]
 public class IMTIconSelector : MonoBehaviour
 {

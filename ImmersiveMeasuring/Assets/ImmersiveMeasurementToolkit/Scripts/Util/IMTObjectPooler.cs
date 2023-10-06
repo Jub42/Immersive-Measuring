@@ -6,7 +6,7 @@ namespace Util
 {
     public interface IMTObjectPooler
     {
-        public bool SetObject(GameObject obj);
+        public bool AddObject(GameObject obj);
 
     }
 }

@@ -122,7 +122,7 @@ namespace Util
             }
         }
 
-        public bool SetObject(GameObject obj)
+        public bool AddObject(GameObject obj)
         {
             for (int i = 0; i < data.Length; i++)
             {
