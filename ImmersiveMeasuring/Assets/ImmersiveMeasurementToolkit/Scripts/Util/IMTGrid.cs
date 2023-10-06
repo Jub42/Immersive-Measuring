@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Util
 {
-    public class IMTGrid : MonoBehaviour
+    public class IMTGrid : MonoBehaviour, IMTObjectPooler
     {
         //height
         // width etc.
@@ -34,6 +34,12 @@ namespace Util
         Vector3 offset;
 
         public GameObject[] data;
+
+        [Header("Grid Item Collider")]
+        [SerializeField]
+        Vector3 center;
+        [SerializeField]
+        Vector3 size;
 
         [Header("Grid Item Renderer Settings")]
         [SerializeField]
@@ -92,13 +98,14 @@ namespace Util
 
             for (int i = 0; i < data.Length; i++)
             {
-                GameObject go = new GameObject("IMTGridItem" + i);
+                GameObject obj = new GameObject("IMTGridItem" + i);
 
-                IMTGridItem item = go.AddComponent<IMTGridItem>();
+                IMTGridItem item = obj.AddComponent<IMTGridItem>();
                 Vector3 v = new Vector3(i % maxCols, -(i / maxCols) % maxRows, -i / batchSize) * spacing;
                 item.SetPosition(offset + v);
+                item.SetCollider(center, size);
 
-                IMTGridRenderer renderer = go.AddComponent<IMTGridRenderer>();
+                IMTGridRenderer renderer = obj.AddComponent<IMTGridRenderer>();
                 renderer.Render(height, width, backgroundOffset, material);
                 if(showBackground)
                 {
@@ -109,15 +116,29 @@ namespace Util
                     renderer.gameObject.SetActive(false);
                 }
 
-                go.transform.parent = this.transform;
+                obj.transform.parent = this.transform;
 
-                data[i] = go;
+                data[i] = obj;
             }
         }
 
-        public IMTGridItem GetEmptyItem()
+        public bool SetObject(GameObject obj)
         {
-            return null;
+            for (int i = 0; i < data.Length; i++)
+            {
+                IMTGridItem item = data[i].GetComponent<IMTGridItem>();
+
+                if (!item.IsOccupied)
+                {
+                    item.SetContent(obj);
+                    return true;
+                }
+                else
+                {
+                    continue;
+                }
+            }
+            return false;
         }
     }
 }

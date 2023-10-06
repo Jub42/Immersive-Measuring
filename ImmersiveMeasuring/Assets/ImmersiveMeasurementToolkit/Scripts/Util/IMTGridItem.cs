@@ -5,6 +5,7 @@ using Util;
 
 namespace Util
 {
+    [RequireComponent(typeof(BoxCollider))]
     public class IMTGridItem : MonoBehaviour
     {
         [Header("Grid Item Settings")]
@@ -13,12 +14,28 @@ namespace Util
 
         [SerializeField]
         bool isOccupied = false;
+        public bool IsOccupied
+        {
+            get { return isOccupied; }
+        }
+
+        //necessary?
+        [SerializeField]
+        GameObject content;
 
         //Hover
 
         void Update()
         {
             gameObject.transform.position = position;
+        }
+
+        public void SetCollider(Vector3 center, Vector3 size)
+        {
+            BoxCollider collider =  GetComponent<BoxCollider>();
+            collider.isTrigger = true;
+            collider.center = center;
+            collider.size = size;
         }
 
         public void SetPosition(Vector3 position)
@@ -28,15 +45,41 @@ namespace Util
 
         void ResetContentPosition()
         {
-            //getchild + reset to position
+            if(isOccupied)
+            {
+                content.transform.localPosition = this.transform.position;
+                content.transform.localRotation = this.transform.rotation;
+            }         
         }
-        void SetContent()
+        public void SetContent(GameObject obj)
         {
-            isOccupied = true;
+            if(!isOccupied)
+            {
+                obj.transform.parent = this.transform;
+                content = obj;
+                ResetContentPosition();
+
+                isOccupied = true;
+            }
+            else
+            {
+                Debug.Log( "GridItem is already occupied!" );
+            }
         }
+        public GameObject GetContent() { return content; }
         void DeleteContent()
         {
-            isOccupied = false;
+            if (isOccupied)
+            {
+                Destroy(content.gameObject);
+                content = null;
+                isOccupied = false;
+            }
+            else
+            {
+                Debug.Log("There already is no content!");
+            }
+            
         }
     }
 
