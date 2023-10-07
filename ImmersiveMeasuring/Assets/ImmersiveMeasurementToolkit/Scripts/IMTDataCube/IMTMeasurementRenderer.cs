@@ -4,19 +4,37 @@ using UnityEngine;
 
 namespace DataCube
 {
+    [RequireComponent(typeof(IMTMeasurementContainer))]
     public class IMTMeasurementRenderer : MonoBehaviour
     {
-        // Start is called before the first frame update
+        IMTMeasurementContainer measurementContainer;
+
+        [SerializeField]
+        [Tooltip("Selection of prefabs for corresponding Measurements.")]
+        List<GameObject> prefabs = new List<GameObject>();
+
         void Start()
         {
-
+            measurementContainer = GetComponent<IMTMeasurementContainer>();
         }
 
-        // Update is called once per frame
         void Update()
+        {
+            //check type
+            // update
+        }
+
+        void CreateRender()
+        {
+            
+        }
+
+        void OnHover()
         {
 
         }
+
+
     }
 }
 

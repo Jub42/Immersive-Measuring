@@ -89,6 +89,7 @@ namespace Util
                 {
                     Vector3 v = new Vector3(i % maxCols, -(i / maxCols) % maxRows, -i / batchSize) * spacing;
                     GameObject prefab = Instantiate(gridItem, v, Quaternion.identity, this.transform);
+                    prefab.name = "GridItem" + i;
                     prefab.GetComponent<IMTGridItem>().SetPosition(offset + v);
                     items[i] = prefab;
                 }
