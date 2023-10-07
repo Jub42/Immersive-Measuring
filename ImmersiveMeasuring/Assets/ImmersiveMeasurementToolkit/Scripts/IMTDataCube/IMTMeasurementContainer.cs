@@ -85,4 +85,7 @@ public class IMTMeasurementContainer : MonoBehaviour
             return false;
         }
     }
+
+    //public bool GetRenderData()
+
 }

@@ -11,23 +11,20 @@ namespace Util
         MeshFilter filter;
 
         [SerializeField]
-        bool isSetUp = false;
+        float height;
+        [SerializeField]
+        float width;
+        [SerializeField]
+        Vector3 offset;
+        [SerializeField]
+        Material material;
 
-        // Start is called before the first frame update
-        void Start()
+        private void Start()
         {
-
+            Render();
         }
 
-        // Update is called once per frame
-        void Update()
-        {
-            // iterate griditems and render background
-
-            
-        }
-
-        public void Setup()
+        public void Render()
         {
             filter = gameObject.AddComponent<MeshFilter>();
             renderer = gameObject.AddComponent<MeshRenderer>();
@@ -35,11 +32,6 @@ namespace Util
             mesh.MarkDynamic();
 
             mesh.Clear();
-        }
-
-        public void Render(float height, float width, Vector3 offset, Material material)
-        {  
-            Setup();
 
             // Two Triangles
             Vector3 upperLeft = offset + (Vector3.left * width / 2f) + (Vector3.up * height / 2f);

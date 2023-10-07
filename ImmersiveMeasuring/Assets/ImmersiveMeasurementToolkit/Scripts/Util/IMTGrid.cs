@@ -29,7 +29,7 @@ namespace Util
 
         // hide/show ?
         [SerializeField]
-        [Tooltip("The origin position of the grid (Upper left corner of the grid). Can be set to null.")]
+        [Tooltip("The origin positionItem of the grid (Upper left corner of the grid). Can be set to null.")]
         Transform GridOrigin;
         Vector3 offset;
 
@@ -39,26 +39,6 @@ namespace Util
 
         [Header("Data")]
         public GameObject[] items;
-
-        #region X
-        [Header("Grid Item Collider")]
-        [SerializeField]
-        Vector3 center;
-        [SerializeField]
-        Vector3 size;
-
-        [Header("Grid Item Background Settings")]
-        [SerializeField]
-        bool showBackground = false;
-        [SerializeField]
-        float height;
-        [SerializeField]
-        float width;
-        [SerializeField]
-        Vector3 backgroundOffset;
-        [SerializeField]
-        Material material;
-        #endregion
 
         // Start is called before the first frame update
         void Start()
@@ -105,31 +85,13 @@ namespace Util
 
             for (int i = 0; i < items.Length; i++)
             {
-                //GameObject prefab = Instantiate(gridItem, v, Quaternion.identity, this.transform);
-
-                GameObject obj = new GameObject("IMTGridItem" + i);
-
-                IMTGridItem item = obj.AddComponent<IMTGridItem>();
-                Vector3 v = new Vector3(i % maxCols, -(i / maxCols) % maxRows, -i / batchSize) * spacing;
-                item.SetPosition(offset + v);
-                item.SetCollider(center, size);
-
-                //add Measurementrenderer
-
-                IMTGridBackgroundRenderer renderer = obj.AddComponent<IMTGridBackgroundRenderer>();
-                renderer.Render(height, width, backgroundOffset, material);
-                if(showBackground)
+                if(gridItem.gameObject.GetComponent<IMTGridItem>() != null)
                 {
-                    renderer.gameObject.SetActive(true);
+                    Vector3 v = new Vector3(i % maxCols, -(i / maxCols) % maxRows, -i / batchSize) * spacing;
+                    GameObject prefab = Instantiate(gridItem, v, Quaternion.identity, this.transform);
+                    prefab.GetComponent<IMTGridItem>().SetPosition(offset + v);
+                    items[i] = prefab;
                 }
-                else
-                {
-                    renderer.gameObject.SetActive(false);
-                }
-
-                obj.transform.parent = this.transform;
-
-                items[i] = obj;
             }
         }
 

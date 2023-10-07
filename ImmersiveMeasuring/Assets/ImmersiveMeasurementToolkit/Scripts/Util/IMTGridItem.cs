@@ -9,8 +9,14 @@ namespace Util
     public class IMTGridItem : MonoBehaviour
     {
         [Header("Grid Item Settings")]
-        // Set position always to designated Vector3
-        Vector3 position;
+        // Set positionItem always to designated Vector3
+        [SerializeField]
+        [Tooltip("Designated item positionItem.")]
+        Vector3 positionItem;
+        [SerializeField]
+        Vector3 centerBoxCollider;
+        [SerializeField]
+        Vector3 sizeBoxCollider;
 
         [SerializeField]
         bool isOccupied = false;
@@ -24,12 +30,16 @@ namespace Util
         GameObject content;
 
         //Hover
+        private void Start()
+        {
+            SetCollider(centerBoxCollider, sizeBoxCollider);
+        }
 
         void Update()
         {
             RefreshStatus();
 
-            gameObject.transform.position = position;
+            gameObject.transform.position = positionItem;
         }
 
         void RefreshStatus()
@@ -54,10 +64,10 @@ namespace Util
 
         public void SetPosition(Vector3 position)
         {
-            this.position = position;
+            this.positionItem = position;
         }
 
-        //ontriggerstay controller -> reset position
+        //ontriggerstay controller -> reset positionItem
         void ResetContentPosition()
         {
             if(isOccupied)
@@ -98,7 +108,7 @@ namespace Util
         private void OnTriggerStay(Collider other)
         {
             //Outline/ hover
-            //Reset content position
+            //Reset content positionItem
         }
     }
 

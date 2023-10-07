@@ -408,18 +408,8 @@ MonoBehaviour:
   spacing: 0.3
   warningThreshold: 0
   GridOrigin: {fileID: 1569761845}
-  data:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  center: {x: 0, y: 0, z: 0}
-  size: {x: 0.2, y: 0.2, z: 0.2}
-  showBackground: 1
-  height: 0.2
-  width: 0.2
-  backgroundOffset: {x: 0, y: 0, z: -0.1}
-  material: {fileID: 2100000, guid: 984bb1e12e1b1f24cbd79ee307affa50, type: 2}
+  gridItem: {fileID: 4825284348240221589, guid: 8a4039cafff4c254fb61aec355e7f2d7, type: 3}
+  items: []
 --- !u!1 &1112715997
 GameObject:
   m_ObjectHideFlags: 0

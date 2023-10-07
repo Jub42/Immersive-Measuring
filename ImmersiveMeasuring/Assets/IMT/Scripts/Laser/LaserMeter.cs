@@ -77,12 +77,12 @@ public class LaserMeter : MonoBehaviour
     {
         //if (Input.GetMouseButton(0))
         //{
-        //    Ray ray = new Ray(originMarker.position, originMarker.forward);
+        //    Ray ray = new Ray(originMarker.positionItem, originMarker.forward);
 
         //    if (Physics.Raycast(ray, out hit, rayCastDistance, ~layerMask))
         //    {
         //        Debug.Log("Test");
-        //        targetMarker.position = hit.point;
+        //        targetMarker.positionItem = hit.point;
         //        targetMarker.rotation = Quaternion.FromToRotation(transform.up, hit.normal) * transform.rotation;
         //    }
         //}
