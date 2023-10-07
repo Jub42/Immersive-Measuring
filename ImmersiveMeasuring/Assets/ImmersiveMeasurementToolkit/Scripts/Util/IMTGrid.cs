@@ -33,15 +33,21 @@ namespace Util
         Transform GridOrigin;
         Vector3 offset;
 
-        public GameObject[] data;
+        [Header("Grid Item")]
+        [SerializeField]
+        GameObject gridItem;
 
+        [Header("Data")]
+        public GameObject[] items;
+
+        #region X
         [Header("Grid Item Collider")]
         [SerializeField]
         Vector3 center;
         [SerializeField]
         Vector3 size;
 
-        [Header("Grid Item Renderer Settings")]
+        [Header("Grid Item Background Settings")]
         [SerializeField]
         bool showBackground = false;
         [SerializeField]
@@ -52,6 +58,7 @@ namespace Util
         Vector3 backgroundOffset;
         [SerializeField]
         Material material;
+        #endregion
 
         // Start is called before the first frame update
         void Start()
@@ -75,10 +82,10 @@ namespace Util
 
         void ClearData()
         {
-            for(int i = 0; i < data.Length; i++)
+            for(int i = 0; i < items.Length; i++)
             {
-                Destroy(data[i]);
-                data[i] = null;
+                Destroy(items[i]);
+                items[i] = null;
             }
         }
 
@@ -94,10 +101,12 @@ namespace Util
             }
 
             batchSize = maxRows * maxCols;
-            data = new GameObject[batchSize * maxLayers];
+            items = new GameObject[batchSize * maxLayers];
 
-            for (int i = 0; i < data.Length; i++)
+            for (int i = 0; i < items.Length; i++)
             {
+                //GameObject prefab = Instantiate(gridItem, v, Quaternion.identity, this.transform);
+
                 GameObject obj = new GameObject("IMTGridItem" + i);
 
                 IMTGridItem item = obj.AddComponent<IMTGridItem>();
@@ -105,7 +114,9 @@ namespace Util
                 item.SetPosition(offset + v);
                 item.SetCollider(center, size);
 
-                IMTGridRenderer renderer = obj.AddComponent<IMTGridRenderer>();
+                //add Measurementrenderer
+
+                IMTGridBackgroundRenderer renderer = obj.AddComponent<IMTGridBackgroundRenderer>();
                 renderer.Render(height, width, backgroundOffset, material);
                 if(showBackground)
                 {
@@ -118,15 +129,15 @@ namespace Util
 
                 obj.transform.parent = this.transform;
 
-                data[i] = obj;
+                items[i] = obj;
             }
         }
 
         public bool AddObject(GameObject obj)
         {
-            for (int i = 0; i < data.Length; i++)
+            for (int i = 0; i < items.Length; i++)
             {
-                IMTGridItem item = data[i].GetComponent<IMTGridItem>();
+                IMTGridItem item = items[i].GetComponent<IMTGridItem>();
 
                 if (!item.IsOccupied)
                 {

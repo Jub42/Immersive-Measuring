@@ -60,7 +60,7 @@ public class MGrid : MonoBehaviour
     {
         Debug.Log("Update Measurements!");
         // Mlist = GetComponent<MeasurementManager>().GetMeasurements();
-        // create gameobj data with Mlist
+        // create gameobj items with Mlist
     }
 
     void UpdateGrid()
@@ -93,8 +93,8 @@ public class MGrid : MonoBehaviour
 
             //Debug.Log("grabbed: " + isGrabbed + "bounds: " + isInBounds + "pinned: " + isPinned + "");
 
-            // DataCube is added to data without set it's position.
-            // This way the data.Count changes and the preexisting DataCubes are placed, while the
+            // DataCube is added to items without set it's position.
+            // This way the items.Count changes and the preexisting DataCubes are placed, while the
             // first position is not occupied by a DataCube.
             if (!isGrabbed && isInBounds && isPinned)
             {

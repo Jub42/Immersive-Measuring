@@ -41,7 +41,7 @@ public class IMTManager : MonoBehaviour
     // Coroutines? / Async
     public void ImportFromJson()
     {
-        // import existing data from json to DataStorage
+        // import existing items from json to DataStorage
     }
     public void ExportAsJson(string path)
     {

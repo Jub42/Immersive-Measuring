@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Util
 {
-    public class IMTGridRenderer : MonoBehaviour
+    public class IMTGridBackgroundRenderer : MonoBehaviour
     {
         Mesh mesh;
         MeshRenderer renderer;

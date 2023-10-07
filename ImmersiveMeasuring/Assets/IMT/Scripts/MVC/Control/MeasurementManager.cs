@@ -15,7 +15,7 @@ public class MeasurementManager : MonoBehaviour
 
     public void ImportFromJson()
     {
-        // import existing data from json
+        // import existing items from json
 
         OnMeasurementsChange();
     }
@@ -64,7 +64,7 @@ public class MeasurementManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // if(visualize) update data
+        // if(visualize) update items
         // else hide?
 
         
