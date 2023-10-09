@@ -90,25 +90,15 @@ namespace Util
             }
         }
         public GameObject GetContent() { return content; }
-        
-        // unnecessary
-        void DeleteContent()
-        {
-            if (isOccupied)
-            {
-                Destroy(content.gameObject);
-                content = null;
-            }
-            else
-            {
-                Debug.Log("There already is no content!");
-            }
-            
-        }
+
         private void OnTriggerStay(Collider other)
         {
             //Outline/ hover
             //Reset content positionItem
+            if (other.CompareTag("Player"))
+            {
+                ResetContentPosition() ;
+            }
         }
     }
 
