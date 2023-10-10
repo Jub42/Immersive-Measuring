@@ -32,7 +32,8 @@ public class IMTLine : MonoBehaviour, IMTHoverable
 
     void Update()
     {
-        if (dataCube.isPinned)
+        
+        if (false)
         {
             Measurement measurement = new EmptyMeasurement();
 
