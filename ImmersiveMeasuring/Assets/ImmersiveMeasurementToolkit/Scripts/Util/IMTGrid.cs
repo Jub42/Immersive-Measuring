@@ -40,7 +40,11 @@ namespace Util
         // Update is called once per frame
         void Update()
         {
-            
+            if(CountOccupied() / items.Length >= warningThreshold)
+            {
+                //TODO: Event
+                Debug.Log("Warning!");
+            }
         }
         public void UpdateGrid()
         {
@@ -49,6 +53,20 @@ namespace Util
                 ClearData();
                 SetupGrid();
             }  
+        }
+
+        int CountOccupied()
+        {
+            int count = 0;
+
+            for(int i = 0; i< items.Length; i++)
+            {
+                if (items[i].GetComponent<IMTGridItem>().IsOccupied)
+                {
+                    count++;
+                }
+            }
+            return count;
         }
 
         void ClearData()
