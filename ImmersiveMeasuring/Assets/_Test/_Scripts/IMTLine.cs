@@ -7,13 +7,14 @@ using Newtonsoft.Json.Linq;
 
 [RequireComponent(typeof(LineRenderer))]
 [RequireComponent(typeof(CapsuleCollider))]
-public class IMTLine : MonoBehaviour, IMTHoverable
+public class IMTLine : MonoBehaviour
 {
     LineRenderer lineRenderer;
     CapsuleCollider collider;
 
     [SerializeField]
     public IMTDataCube dataCube;
+    Distance measurement;
 
     [SerializeField]
     Vector3 lineStart;
@@ -80,7 +81,11 @@ public class IMTLine : MonoBehaviour, IMTHoverable
         }    
     }
 
-    public void OnHover()
+    public void OnHoverEnter()
+    {
+        throw new System.NotImplementedException();
+    }
+    public void OnHoverExit()
     {
         throw new System.NotImplementedException();
     }

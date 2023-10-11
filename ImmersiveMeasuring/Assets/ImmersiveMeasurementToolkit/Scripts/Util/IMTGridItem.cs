@@ -100,6 +100,13 @@ namespace Util
                 ResetContentPosition() ;
             }
         }
-    }
+        public void OnHoverEnter()
+        {
 
+        }
+        public void OnHoverExit()
+        {
+
+        }
+    }
 }
