@@ -78,6 +78,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   height: 0.2
   width: 0.2
-  offset: {x: 0, y: 0, z: 0}
+  offset: {x: 0, y: 0, z: -0.1}
   material: {fileID: 2100000, guid: 949a35b833fa912478b19a868bc76016, type: 2}
-  isSetUp: 0

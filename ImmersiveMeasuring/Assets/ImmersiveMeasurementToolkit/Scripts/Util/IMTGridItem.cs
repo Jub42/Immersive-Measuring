@@ -39,7 +39,7 @@ namespace Util
         {
             RefreshStatus();
 
-            gameObject.transform.position = positionItem;
+            //gameObject.transform.position = positionItem;
         }
 
         void RefreshStatus()

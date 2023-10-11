@@ -1,7 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 namespace Util
@@ -26,12 +23,6 @@ namespace Util
         [Tooltip("Select a threshold. If the grid is [warinngThreshold]% filled a warning appears.")]
         float warningThreshold;
         //Warning GameEvent
-
-        // hide/show ?
-        [SerializeField]
-        [Tooltip("The origin positionItem of the grid (Upper left corner of the grid). Can be set to null.")]
-        Transform GridOrigin;
-        Vector3 offset;
 
         [Header("Grid Item")]
         [SerializeField]
@@ -71,15 +62,6 @@ namespace Util
 
         public void SetupGrid()
         {
-            if (GridOrigin == null)
-            {
-                offset = transform.position;
-            }
-            else
-            {
-                offset = GridOrigin.position;
-            }
-
             batchSize = maxRows * maxCols;
             items = new GameObject[batchSize * maxLayers];
 
@@ -87,10 +69,10 @@ namespace Util
             {
                 if(gridItem.gameObject.GetComponent<IMTGridItem>() != null)
                 {
-                    Vector3 v = new Vector3(i % maxCols, -(i / maxCols) % maxRows, -i / batchSize) * spacing;
-                    GameObject prefab = Instantiate(gridItem, v, Quaternion.identity, this.transform);
+                    Vector3 v = new Vector3(-(i % maxCols), -(i / maxCols) % maxRows, -i / batchSize) * spacing;
+                    v = Quaternion.Euler(this.transform.eulerAngles.x, this.transform.eulerAngles.y, this.transform.eulerAngles.z) * v;
+                    GameObject prefab = Instantiate(gridItem, this.transform.position + v, this.transform.rotation, this.transform);
                     prefab.name = "GridItem" + i;
-                    prefab.GetComponent<IMTGridItem>().SetPosition(offset + v);
                     items[i] = prefab;
                 }
             }

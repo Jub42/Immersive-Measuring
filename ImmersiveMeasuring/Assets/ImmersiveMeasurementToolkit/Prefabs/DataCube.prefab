@@ -16,7 +16,6 @@ GameObject:
   - component: {fileID: 8294509639386082153}
   - component: {fileID: 1842423795371307012}
   - component: {fileID: 4558298031025131799}
-  - component: {fileID: 6592841452378080558}
   - component: {fileID: 7787747071600493964}
   m_Layer: 0
   m_Name: DataCube
@@ -166,22 +165,6 @@ MonoBehaviour:
   display: {fileID: 4024300774975759057}
   text: {fileID: 7503943505730340808}
   relativOffsetPosition: {x: 0, y: 0.2, z: 0}
---- !u!114 &6592841452378080558
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1231353127779274680}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e51a1ffe5dec0844bb84b9d106e04838, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  parent: {fileID: 0}
-  line: {fileID: 0}
-  arc: {fileID: 0}
-  area: {fileID: 0}
 --- !u!114 &7787747071600493964
 MonoBehaviour:
   m_ObjectHideFlags: 0
