@@ -12,6 +12,10 @@ namespace DataCube
     [RequireComponent(typeof(Rigidbody))]
     public class IMTDataCube : DataCubeStateController
     {
+        public IsGrabbedState grabbedState = new IsGrabbedState();
+        public IsPinnedState pinnedState = new IsPinnedState();
+        public IsDefaultState defaultState = new IsDefaultState();
+
         // Start is called before the first frame update
         protected override void Start()
         {
@@ -22,23 +26,32 @@ namespace DataCube
         protected override void Update()
         {
             base.Update();
-
+            
+            // if dc is grabbed
             if (GetComponent<GrabbableBase>().isGrabbed)
             {
                 ChangeState(grabbedState);
             }
+            // if dc is not grabbed 
+            else if (currentState is not IsPinnedState)
+            {
+                ChangeState(defaultState);
+            }
             
         }
-
-        private void OnTriggerEnter(Collider other)
+        /// <summary>
+        /// Change state to Pinned.
+        /// </summary>
+        public void SetPinned()
         {
-            // if other GridItem
-            // it other Controller
-            //ChangeState(pinnedState);
-        }
-        private void OnTriggerExit(Collider other)
-        {
-            
+            if (currentState is IsPinnedState || currentState is IsGrabbedState)
+            {
+                return;
+            }
+            else
+            {
+                ChangeState(pinnedState);
+            }
         }
     }
 

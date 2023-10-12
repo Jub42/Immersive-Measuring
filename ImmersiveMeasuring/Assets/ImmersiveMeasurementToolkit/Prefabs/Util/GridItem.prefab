@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4825284348240221577}
   - component: {fileID: 4825284348240221576}
   - component: {fileID: 4825284348240221579}
+  - component: {fileID: 7899672713906747205}
   m_Layer: 0
   m_Name: GridItem
   m_TagString: Untagged
@@ -80,3 +81,15 @@ MonoBehaviour:
   width: 0.2
   offset: {x: 0, y: 0, z: -0.1}
   material: {fileID: 2100000, guid: 949a35b833fa912478b19a868bc76016, type: 2}
+--- !u!114 &7899672713906747205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4825284348240221589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33dfec5214206eb45b3cfa3418858c53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -74,9 +74,6 @@ namespace Util
             {
                 content.transform.position = this.transform.position;
                 content.transform.rotation = this.transform.rotation;
-
-                // Set Content kinetic etc.
-                
             }         
         }
         public void SetContent(GameObject obj)
@@ -85,6 +82,7 @@ namespace Util
             {
                 obj.transform.parent = this.transform;
                 content = obj;
+                isOccupied = true;
                 ResetContentPosition();
             }
             else

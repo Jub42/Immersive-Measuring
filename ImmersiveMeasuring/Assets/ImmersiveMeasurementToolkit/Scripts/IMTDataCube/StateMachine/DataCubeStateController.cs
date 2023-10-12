@@ -9,14 +9,12 @@ namespace StateMachine
         protected IState currentState;
         public IState CurrentState { get { return currentState; } }
 
-        public IsGrabbedState grabbedState = new IsGrabbedState();
-        public IsPinnedState pinnedState = new IsPinnedState();
-        public IsDefaultState defaultState = new IsDefaultState();
+        public NoneState noneState = new NoneState();
 
         // Start is called before the first frame update
         protected virtual void Start()
         {
-            ChangeState(defaultState);
+            ChangeState(noneState);
         }
 
         // Update is called once per frame
