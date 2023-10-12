@@ -2,12 +2,13 @@ using MeasurementUtility;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DataCube;
 
 public static class IMTObjectCreationTool
 {
     public static bool InstantiateMeasurementOnGameObj(Measurement measurement, ref GameObject prefab)
     {
-        if (prefab.GetComponent<IMTDataCube>().SetMeasurement(measurement))
+        if (prefab.GetComponent<IMTMeasurementContainer>().SetMeasurement(measurement))
         {
             return true;
         }
@@ -20,9 +21,9 @@ public static class IMTObjectCreationTool
     // change to ref?
     public static bool ExtractMeasurementData(GameObject dataCube, out Measurement measurement)
     {
-        if (dataCube.gameObject.GetComponent<IMTDataCube>() != null)
+        if (dataCube.gameObject.GetComponent<IMTMeasurementContainer>() != null)
         {
-            dataCube.gameObject.GetComponent<IMTDataCube>().GetMeasurement(out measurement);
+            dataCube.gameObject.GetComponent<IMTMeasurementContainer>().GetMeasurement(out measurement);
             return true;
         }
         else

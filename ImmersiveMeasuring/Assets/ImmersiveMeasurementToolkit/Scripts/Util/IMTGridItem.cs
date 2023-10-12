@@ -72,8 +72,11 @@ namespace Util
         {
             if(isOccupied)
             {
-                content.transform.localPosition = this.transform.position;
-                content.transform.localRotation = this.transform.rotation;
+                content.transform.position = this.transform.position;
+                content.transform.rotation = this.transform.rotation;
+
+                // Set Content kinetic etc.
+                
             }         
         }
         public void SetContent(GameObject obj)

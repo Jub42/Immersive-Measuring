@@ -8,13 +8,38 @@ namespace Util
     public class IMTSpawner : MonoBehaviour
     {
         [SerializeField]
-        IMTObjectPooler pooler;
+        GameObject imtObjectPooler;
+        IMTObjectPooler imtPooler;
+
+        [SerializeField]
+        GameObject goDataCube;
+
+        [SerializeField]
+        Transform spawnLocationDataCube;
+
+        private void Start()
+        {
+            imtPooler = imtObjectPooler.GetComponent<IMTObjectPooler>();
+        }
+
+        private void Update()
+        {
+            
+        }
 
         public void SpawnObject(Measurement m)
         {
+
+            GameObject prefab = Instantiate(goDataCube, spawnLocationDataCube.position, Quaternion.identity);
+            if (IMTObjectCreationTool.InstantiateMeasurementOnGameObj(m, ref prefab))
+            {
+                prefab.name = m.ID;
+                Debug.Log("DataCube spawned: " + m.GetType() + " " + prefab.name);
+            }
+            Debug.Log("möp");
             // create DataCube
             // add DC to Pool
-            pooler.AddObject(null);
+            imtPooler.AddObject(prefab);
         }
     }
 }
