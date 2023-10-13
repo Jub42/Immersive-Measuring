@@ -9,12 +9,12 @@ namespace StateMachine
         protected IState currentState;
         public IState CurrentState { get { return currentState; } }
 
-        public NoneState noneState = new NoneState();
+        public StartState startState = new StartState();
 
         // Start is called before the first frame update
         protected virtual void Start()
         {
-            ChangeState(noneState);
+            ChangeState(startState);
         }
 
         // Update is called once per frame

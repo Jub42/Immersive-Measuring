@@ -36,7 +36,6 @@ namespace Util
                 prefab.name = m.ID;
                 Debug.Log("DataCube spawned: " + m.GetType() + " " + prefab.name);
             }
-            Debug.Log("möp");
             // create DataCube
             // add DC to Pool
             imtPooler.AddObject(prefab);

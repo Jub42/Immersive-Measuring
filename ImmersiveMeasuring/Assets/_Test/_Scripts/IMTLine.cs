@@ -7,7 +7,7 @@ using Newtonsoft.Json.Linq;
 
 [RequireComponent(typeof(LineRenderer))]
 [RequireComponent(typeof(CapsuleCollider))]
-public class IMTLine : MonoBehaviour
+public class IMTLine : MonoBehaviour, IMeasurementVisualization
 {
     LineRenderer lineRenderer;
     CapsuleCollider collider;
@@ -31,57 +31,48 @@ public class IMTLine : MonoBehaviour
     [SerializeField]
     float width = .025f;
 
-    void Update()
+    public void UpdateMeasurement(Measurement measurement)
     {
-        
-        if (false)
-        {
-            Measurement measurement = new EmptyMeasurement();
+        Coordinate[] coords = measurement.GetCoordinates();
+        Coordinate c1 = coords[0];
+        Coordinate c2 = coords[1];
+        lineStart = new Vector3((float)c1.x, (float)c1.y, (float)c1.z);
+        lineEnd = new Vector3((float)c2.x, (float)c2.y, (float)c2.z);
 
-            if (dataCube.GetMeasurement(out measurement))
-            {
-                Coordinate[] coords = measurement.GetCoordinates();
-                Coordinate c1 = coords[0];
-                Coordinate c2 = coords[1];
-                lineStart = new Vector3((float)c1.x, (float)c1.y, (float)c1.z);
-                lineEnd = new Vector3((float)c2.x, (float)c2.y, (float)c2.z);
-
-                Debug.Log("lineStart: " + lineStart);
-                Debug.Log("lineEnd: " + lineEnd);
+        Debug.Log("lineStart: " + lineStart);
+        Debug.Log("lineEnd: " + lineEnd);
 
 
-                lineRenderer = GetComponent<LineRenderer>();
-                collider = GetComponent<CapsuleCollider>();
+        lineRenderer = GetComponent<LineRenderer>();
+        collider = GetComponent<CapsuleCollider>();
 
-                if (lineStart == null && lineEnd == null) return;
+        if (lineStart == null && lineEnd == null) return;
 
-                lineRenderer.widthMultiplier = width;
-                lineRenderer.SetPosition(0, lineStart);
-                lineRenderer.SetPosition(1, lineEnd);
+        lineRenderer.widthMultiplier = width;
+        lineRenderer.SetPosition(0, lineStart);
+        lineRenderer.SetPosition(1, lineEnd);
 
-                Vector3 newPosition = (lineEnd + lineStart) * .5f;
-                Debug.Log(lineEnd);
-                Debug.Log(lineStart);
-                Debug.Log(newPosition);
+        Vector3 newPosition = (lineEnd + lineStart) * .5f;
+        Debug.Log(lineEnd);
+        Debug.Log(lineStart);
+        Debug.Log(newPosition);
 
-                collider.radius = radius;
-                collider.height = length * Vector3.Distance(lineStart, lineEnd);
-                collider.direction = 2; // z direction
-                collider.center = Vector3.zero;
-                collider.isTrigger = true;
-                transform.position = newPosition;
-                transform.LookAt(lineEnd);
+        collider.radius = radius;
+        collider.height = length * Vector3.Distance(lineStart, lineEnd);
+        collider.direction = 2; // z direction
+        collider.center = Vector3.zero;
+        collider.isTrigger = true;
+        transform.position = newPosition;
+        transform.LookAt(lineEnd);
 
-                // place Pins ?
-            }
-        }
-        else
-        {
-            Destroy(this.gameObject);
-        }    
+        // place Pins ?
     }
 
     public void OnHoverEnter()
+    {
+        throw new System.NotImplementedException();
+    }
+    public void OnHoverStay()
     {
         throw new System.NotImplementedException();
     }

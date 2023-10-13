@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace DataCube
+namespace Measurements
 {
     public class IMTMeasurementContainer : MonoBehaviour
     {

@@ -5,6 +5,8 @@ using Util;
 
 namespace Util
 {
+    // OnChange Event für Renderer?
+
     [RequireComponent(typeof(BoxCollider))]
     public class IMTGridItem : MonoBehaviour
     {
@@ -100,14 +102,6 @@ namespace Util
             {
                 ResetContentPosition() ;
             }
-        }
-        public void OnHoverEnter()
-        {
-
-        }
-        public void OnHoverExit()
-        {
-
         }
     }
 }

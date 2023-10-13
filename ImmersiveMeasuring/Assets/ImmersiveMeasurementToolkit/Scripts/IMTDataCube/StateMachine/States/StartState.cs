@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace StateMachine
 {
-    public class NoneState : IState
+    public class StartState : IState
     {
         public void OnEnter(DataCubeStateController controller)
         {

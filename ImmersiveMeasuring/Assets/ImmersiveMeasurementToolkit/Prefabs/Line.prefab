@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3287768271493806286}
   - component: {fileID: 3287768271493806281}
   - component: {fileID: 3287768271493806280}
+  - component: {fileID: 5949327734807579054}
   m_Layer: 0
   m_Name: Line
   m_TagString: Untagged
@@ -166,3 +167,54 @@ MonoBehaviour:
   length: 1.05
   radius: 0.05
   width: 0.025
+--- !u!114 &5949327734807579054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3287768271493806283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db37736e19fad4c46910ece46a00bab0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  everyHoverEntered:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: Measurements.IMTMeasurementRenderer, Assembly-CSharp
+        m_MethodName: OnHoverEnter
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  hoverStaying:
+    m_PersistentCalls:
+      m_Calls: []
+  hoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  everyHoverExited:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: Measurements.IMTMeasurementRenderer, Assembly-CSharp
+        m_MethodName: OnHoverExit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
