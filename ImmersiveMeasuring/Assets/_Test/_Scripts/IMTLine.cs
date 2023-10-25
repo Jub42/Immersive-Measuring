@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using MeasurementUtility;
-using Newtonsoft.Json.Linq;
+using DataCube;
 
 [RequireComponent(typeof(LineRenderer))]
 [RequireComponent(typeof(CapsuleCollider))]
@@ -74,7 +74,7 @@ public class IMTLine : MonoBehaviour, IMeasurementVisualization
     }
     public void OnHoverStay()
     {
-        throw new System.NotImplementedException();
+        Debug.Log(gameObject.name + " hover.");
     }
     public void OnHoverExit()
     {

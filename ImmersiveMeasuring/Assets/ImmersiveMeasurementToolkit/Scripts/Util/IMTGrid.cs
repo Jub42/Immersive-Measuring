@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using IMTEventSystem;
 
 namespace Util
 {
@@ -22,7 +23,8 @@ namespace Util
         [SerializeField, Range(0f, 1f)]
         [Tooltip("Select a threshold. If the grid is [warinngThreshold]% filled a warning appears.")]
         float warningThreshold;
-        //Warning GameEvent
+        [SerializeField]
+        GameEvent onWarning;
 
         [Header("Grid Item")]
         [SerializeField]
@@ -42,7 +44,7 @@ namespace Util
         {
             if(CountOccupied() / items.Length >= warningThreshold)
             {
-                //TODO: Event
+                onWarning.TriggerEvent();
                 Debug.Log("Warning!");
             }
         }

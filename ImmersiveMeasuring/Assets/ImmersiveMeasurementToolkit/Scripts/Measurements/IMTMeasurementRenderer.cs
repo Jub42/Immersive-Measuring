@@ -83,7 +83,7 @@ namespace Measurements
         }
         public void OnHoverStay()
         {
-            throw new System.NotImplementedException();
+            Debug.Log(gameObject.name + " hover.");
         }
         public void OnHoverExit()
         {

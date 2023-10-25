@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using static HTC.UnityPlugin.ColliderEvent.ColliderAxisEventData;
+using DataCube;
 
 public class BillboardDisplay : MonoBehaviour
 {

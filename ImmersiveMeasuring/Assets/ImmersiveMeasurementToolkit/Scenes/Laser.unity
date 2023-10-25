@@ -238,7 +238,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2124848908817030991, guid: 6ae52552c20c75847acdae6f32ec4a0c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1.43
       objectReference: {fileID: 0}
     - target: {fileID: 2124848908817030991, guid: 6ae52552c20c75847acdae6f32ec4a0c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -271,10 +271,6 @@ PrefabInstance:
     - target: {fileID: 2124848908817030991, guid: 6ae52552c20c75847acdae6f32ec4a0c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8779766554162679811, guid: 6ae52552c20c75847acdae6f32ec4a0c, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.87
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ae52552c20c75847acdae6f32ec4a0c, type: 3}
@@ -320,6 +316,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4774113927523255245, guid: de346d1d48fd96c4493e9da12aa8d829, type: 3}
+      propertyPath: m_Name
+      value: MainCamera
+      objectReference: {fileID: 0}
     - target: {fileID: 4774113927523401931, guid: de346d1d48fd96c4493e9da12aa8d829, type: 3}
       propertyPath: m_TagString
       value: Player
@@ -460,6 +460,7 @@ MonoBehaviour:
   maxLayers: 1
   spacing: 0.3
   warningThreshold: 0.945
+  onWarning: {fileID: 11400000, guid: d98c7632f1247aa4fa68fa197eb45ceb, type: 2}
   gridItem: {fileID: 4825284348240221589, guid: 8a4039cafff4c254fb61aec355e7f2d7, type: 3}
   items: []
 --- !u!1 &1112715997
@@ -552,7 +553,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1112715997}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 10}
+  m_LocalPosition: {x: 0, y: 1.43, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
