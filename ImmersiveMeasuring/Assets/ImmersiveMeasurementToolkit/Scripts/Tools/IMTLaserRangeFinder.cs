@@ -27,8 +27,7 @@ namespace Tool
         // Update is called once per frame
         void Update()
         {
-            if (Input.GetKeyDown("space"))
-            //if (ViveInput.GetPressDown(HandRole.RightHand, ControllerButton.Trigger) && GetComponent<GrabObserver>().grabbed)
+            if ((ViveInput.GetPressDown(HandRole.RightHand, ControllerButton.Trigger) && GetComponent<GrabObserver>().grabbed) || Input.GetKeyDown("space"))
             {
                 Coordinate[] c = {
                 new Coordinate(originMarker.position.x, originMarker.position.y, originMarker.position.z),

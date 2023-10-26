@@ -35,7 +35,7 @@ namespace Measurements
 
         void Update()
         {
-            
+            // Editor
             if (Input.GetKeyDown("r") && gridItem.IsOccupied)
             {
                 if (Render())
@@ -45,11 +45,23 @@ namespace Measurements
             }
         }
 
+        public void OnGridChange()
+        {
+            if (Render())
+            {
+                Debug.Log("Rendered");
+            }
+        }
+
         bool Render()
         { 
             if (gridItem.IsOccupied)
             {
                 measurementContainer = gridItem.GetContent().GetComponent<IMTMeasurementContainer>();
+            }
+            else
+            {
+                return false;
             }
 
             DeactivateVisualization();

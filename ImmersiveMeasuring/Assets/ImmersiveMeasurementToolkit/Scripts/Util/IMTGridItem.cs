@@ -94,6 +94,7 @@ namespace Util
         }
         public GameObject GetContent() { return content; }
 
+        // replace with timer + event 
         private void OnTriggerStay(Collider other)
         {
             //Outline/ hover
@@ -101,6 +102,7 @@ namespace Util
             if (other.CompareTag("Player"))
             {
                 ResetContentPosition() ;
+                Debug.Log("Hi " + other.name);
             }
         }
     }
