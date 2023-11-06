@@ -281,13 +281,69 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5949327734807579054, guid: 71eaf7e63b6971248aceac85b6cbdb70, type: 3}
+      propertyPath: everyHoverExited.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5949327734807579054, guid: 71eaf7e63b6971248aceac85b6cbdb70, type: 3}
+      propertyPath: everyHoverEntered.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5949327734807579054, guid: 71eaf7e63b6971248aceac85b6cbdb70, type: 3}
+      propertyPath: everyHoverExited.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5949327734807579054, guid: 71eaf7e63b6971248aceac85b6cbdb70, type: 3}
+      propertyPath: everyHoverEntered.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5949327734807579054, guid: 71eaf7e63b6971248aceac85b6cbdb70, type: 3}
       propertyPath: everyHoverExited.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1095393810687550072}
     - target: {fileID: 5949327734807579054, guid: 71eaf7e63b6971248aceac85b6cbdb70, type: 3}
+      propertyPath: everyHoverExited.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5949327734807579054, guid: 71eaf7e63b6971248aceac85b6cbdb70, type: 3}
       propertyPath: everyHoverEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1095393810687550072}
+    - target: {fileID: 5949327734807579054, guid: 71eaf7e63b6971248aceac85b6cbdb70, type: 3}
+      propertyPath: everyHoverEntered.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5949327734807579054, guid: 71eaf7e63b6971248aceac85b6cbdb70, type: 3}
+      propertyPath: everyHoverExited.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5949327734807579054, guid: 71eaf7e63b6971248aceac85b6cbdb70, type: 3}
+      propertyPath: everyHoverEntered.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5949327734807579054, guid: 71eaf7e63b6971248aceac85b6cbdb70, type: 3}
+      propertyPath: everyHoverExited.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: DontHover
+      objectReference: {fileID: 0}
+    - target: {fileID: 5949327734807579054, guid: 71eaf7e63b6971248aceac85b6cbdb70, type: 3}
+      propertyPath: everyHoverEntered.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: Hover
+      objectReference: {fileID: 0}
+    - target: {fileID: 5949327734807579054, guid: 71eaf7e63b6971248aceac85b6cbdb70, type: 3}
+      propertyPath: everyHoverExited.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: HoverTest, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5949327734807579054, guid: 71eaf7e63b6971248aceac85b6cbdb70, type: 3}
+      propertyPath: everyHoverEntered.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: HoverTest, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5949327734807579054, guid: 71eaf7e63b6971248aceac85b6cbdb70, type: 3}
+      propertyPath: everyHoverExited.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5949327734807579054, guid: 71eaf7e63b6971248aceac85b6cbdb70, type: 3}
+      propertyPath: everyHoverEntered.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 71eaf7e63b6971248aceac85b6cbdb70, type: 3}
 --- !u!4 &7279469699675153753 stripped
