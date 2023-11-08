@@ -68,14 +68,22 @@ public class IMTLine : MonoBehaviour, IMeasurementVisualization
         // place Pins ?
     }
 
+    public void ResetVisualization()
+    {
+        lineRenderer.SetPosition(0, Vector3.zero);
+        lineRenderer.SetPosition(1, Vector3.zero); // reset Line Renderer
+    }
+
     public void OnHoverEnter()
     {
         throw new System.NotImplementedException();
     }
+
     public void OnHoverStay()
     {
-        Debug.Log(gameObject.name + " hover.");
+        throw new System.NotImplementedException();
     }
+
     public void OnHoverExit()
     {
         throw new System.NotImplementedException();

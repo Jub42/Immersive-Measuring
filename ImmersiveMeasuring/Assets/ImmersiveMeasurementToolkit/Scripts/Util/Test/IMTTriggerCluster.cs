@@ -20,17 +20,17 @@ public class IMTTriggerCluster : MonoBehaviour
             if (triggers[i].IsEntered)
             {
                 Enter();
-            }else if (triggers[i].IsStayed)
+            }
+            if (triggers[i].IsStayed)
             {
                 Stay();
-            }else if (triggers[i].IsExited)
+            }
+            if (triggers[i].IsExited)
             {
                 Exit();
             }
-            else
-            {
-                continue;
-            }
+
+            continue;
         }
     }
 

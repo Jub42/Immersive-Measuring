@@ -98,7 +98,7 @@ namespace Util
         private void OnTriggerStay(Collider other)
         {
             //Outline/ hover
-            //Reset content positionItem
+            //ResetReaction content positionItem
             if (other.CompareTag("Player"))
             {
                 ResetContentPosition() ;

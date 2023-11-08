@@ -1,3 +1,4 @@
+using IMTEventSystem;
 using MeasurementUtility;
 using System.Collections;
 using System.Collections.Generic;
@@ -35,14 +36,21 @@ namespace Measurements
 
         void Update()
         {
+            if (!gridItem.IsOccupied)
+            {
+                DeactivateVisualization();
+            }
+
+#if UNITY_EDITOR
             // Editor
             if (Input.GetKeyDown("r") && gridItem.IsOccupied)
             {
                 if (Render())
                 {
                     Debug.Log("Rendered");
-                }   
+                }
             }
+#endif
         }
 
         public void OnGridChange()
@@ -55,6 +63,8 @@ namespace Measurements
 
         bool Render()
         { 
+            //DeactivateVisualization();
+
             if (gridItem.IsOccupied)
             {
                 measurementContainer = gridItem.GetContent().GetComponent<IMTMeasurementContainer>();
@@ -63,8 +73,6 @@ namespace Measurements
             {
                 return false;
             }
-
-            DeactivateVisualization();
 
             m = new EmptyMeasurement();
             if (measurementContainer.GetMeasurement(out m))

@@ -5,5 +5,5 @@ using UnityEngine;
 public interface IReaction
 {
     void React();
-    void Reset();
+    void ResetReaction();
 }

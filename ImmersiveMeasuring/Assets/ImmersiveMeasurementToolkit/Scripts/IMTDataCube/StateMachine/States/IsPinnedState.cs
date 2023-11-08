@@ -8,7 +8,9 @@ namespace StateMachine
     {
         public void OnEnter(DataCubeStateController controller)
         {
-            
+            Rigidbody rb = controller.GetComponent<Rigidbody>();
+            rb.useGravity = false;
+            rb.isKinematic = true;
         }
 
         public void OnExit(DataCubeStateController controller)

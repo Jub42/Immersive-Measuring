@@ -22,20 +22,29 @@ public class IMTTrigger : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        isEntered = true;
-        isStayed = false;
-        isExited = false;
+        if (other.CompareTag("Player"))
+        {
+            isEntered = true;
+            isStayed = false;
+            isExited = false;
+        }
     }
     private void OnTriggerStay(Collider other)
-    { 
-        isEntered = false;
-        isStayed = true;
-        isExited = false;
+    {
+        if (other.CompareTag("Player"))
+        {
+            isEntered = false;
+            isStayed = true;
+            isExited = false;
+        }
     }
     private void OnTriggerExit(Collider other)
     {
-        isEntered = false;
-        isStayed = false;
-        isExited = true;
+        if (other.CompareTag("Player"))
+        {
+            isEntered = false;
+            isStayed = false;
+            isExited = true;
+        }
     }
 }
