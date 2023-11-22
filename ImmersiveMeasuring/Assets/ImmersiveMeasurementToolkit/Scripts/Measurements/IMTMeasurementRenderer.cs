@@ -63,8 +63,6 @@ namespace Measurements
 
         bool Render()
         { 
-            //DeactivateVisualization();
-
             if (gridItem.IsOccupied)
             {
                 measurementContainer = gridItem.GetContent().GetComponent<IMTMeasurementContainer>();
