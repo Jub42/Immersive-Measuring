@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5446092212028523879}
   - component: {fileID: 5446092212028523878}
   m_Layer: 2
-  m_Name: Plane
+  m_Name: Screen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -189,7 +189,7 @@ GameObject:
   - component: {fileID: 6262416705083760626}
   - component: {fileID: 6262416705083760627}
   m_Layer: 2
-  m_Name: Camera
+  m_Name: Eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
