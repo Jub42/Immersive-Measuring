@@ -10,7 +10,7 @@ namespace DataCube
 {
     [RequireComponent(typeof(BoxCollider))]
     [RequireComponent(typeof(Rigidbody))]
-    public class IMTDataCube : DataCubeStateController
+    public class IMTDataCube : StateController
     {
         public IsGrabbedState grabbedState = new IsGrabbedState();
         public IsPinnedState pinnedState = new IsPinnedState();

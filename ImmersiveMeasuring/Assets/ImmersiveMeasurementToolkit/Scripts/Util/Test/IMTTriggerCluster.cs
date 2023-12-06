@@ -2,6 +2,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+/// <summary>
+/// Combines multiple IMTTrigger into a IMTTriggerCluster. 
+/// If one of the subscribed Trigger is activated, 
+/// the corresponding event is triggered.
+/// </summary>
 public class IMTTriggerCluster : MonoBehaviour
 {
     [SerializeField]

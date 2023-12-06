@@ -6,8 +6,8 @@ namespace StateMachine
 {
     public interface IState
     {
-        public void OnEnter(DataCubeStateController controller);
-        public void UpdateState(DataCubeStateController controller);
-        public void OnExit(DataCubeStateController controller);
+        public void OnEnter(StateController controller);
+        public void UpdateState(StateController controller);
+        public void OnExit(StateController controller);
     }
 }

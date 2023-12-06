@@ -5,6 +5,9 @@ using UnityEngine;
 using MeasurementUtility;
 using DataCube;
 
+/// <summary>
+/// Handles visualization of Measurement: Line.
+/// </summary>
 [RequireComponent(typeof(LineRenderer))]
 [RequireComponent(typeof(CapsuleCollider))]
 public class IMTLine : MonoBehaviour, IMeasurementVisualization
@@ -16,9 +19,7 @@ public class IMTLine : MonoBehaviour, IMeasurementVisualization
     public IMTDataCube dataCube;
     Distance measurement;
 
-    [SerializeField]
     Vector3 lineStart;
-    [SerializeField]
     Vector3 lineEnd;
 
     [SerializeField]

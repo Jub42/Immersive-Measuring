@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Observes the attached Collider (acting as trigger) and stores information about 
+/// the it.
+/// </summary>
 [RequireComponent(typeof(Collider))]
 public class IMTTrigger : MonoBehaviour
 {

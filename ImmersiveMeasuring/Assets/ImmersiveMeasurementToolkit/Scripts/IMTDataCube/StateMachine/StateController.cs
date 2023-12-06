@@ -4,20 +4,22 @@ using UnityEngine;
 
 namespace StateMachine
 {
-    public class DataCubeStateController : MonoBehaviour
+    /// <summary>
+    /// Generic StateController.
+    /// 
+    /// </summary>
+    public class StateController : MonoBehaviour
     {
         protected IState currentState;
         public IState CurrentState { get { return currentState; } }
 
         public StartState startState = new StartState();
 
-        // Start is called before the first frame update
         protected virtual void Start()
         {
             ChangeState(startState);
         }
 
-        // Update is called once per frame
         protected virtual void Update()
         {
             if (currentState != null)

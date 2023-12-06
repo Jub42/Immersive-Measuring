@@ -4,10 +4,12 @@ using UnityEngine;
 
 namespace Util
 {
+    /// <summary>
+    /// Pooler.
+    /// </summary>
     public interface IMTObjectPooler
     {
         public bool AddObject(GameObject obj);
-
     }
 }
 
