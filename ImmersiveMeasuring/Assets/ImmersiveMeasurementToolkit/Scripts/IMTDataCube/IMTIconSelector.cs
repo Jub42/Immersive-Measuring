@@ -6,6 +6,10 @@ using Measurements;
 
 namespace DataCube
 {
+    /// <summary>
+    /// Selects an Icon corresponding to the Measurementtype of the stored Measurement
+    /// in the IMTMeasurementContainer.
+    /// </summary>
     [RequireComponent(typeof(IMTMeasurementContainer))]
     public class IMTIconSelector : MonoBehaviour
     {
