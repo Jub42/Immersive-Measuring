@@ -6,7 +6,6 @@ namespace StateMachine
 {
     /// <summary>
     /// Generic StateController.
-    /// 
     /// </summary>
     public class StateController : MonoBehaviour
     {

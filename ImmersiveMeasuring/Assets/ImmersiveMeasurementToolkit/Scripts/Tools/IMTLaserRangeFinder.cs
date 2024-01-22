@@ -1,11 +1,14 @@
 using HTC.UnityPlugin.Vive;
 using MeasurementUtility;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using IMTEventSystem;
+using Util;
 
-namespace Tool
+namespace Tools
 {
+    /// <summary>
+    /// Creates the Measurement.
+    /// </summary>
     public class IMTLaserRangeFinder : MonoBehaviour
     {
         TwoPointDistanceMeasure tool = new TwoPointDistanceMeasure("Distance Measure");
@@ -32,7 +35,9 @@ namespace Tool
                 Coordinate[] c = {
                 new Coordinate(originMarker.position.x, originMarker.position.y, originMarker.position.z),
                 new Coordinate(targetMarker.position.x, targetMarker.position.y, targetMarker.position.z)};
+                // Use MeasurementUtility to update the Measurement.
                 tool.Measure(IMTIDHandler.GetID(), c);
+                // Get the Measurement.
                 Measurement m = tool.CreateMeasurement();
 
                 Debug.Log(m);

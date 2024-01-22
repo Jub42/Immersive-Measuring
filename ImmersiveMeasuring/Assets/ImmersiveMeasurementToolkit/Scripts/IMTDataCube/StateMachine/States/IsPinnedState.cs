@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace StateMachine
 {
+    /// <summary>
+    /// Handles the RigidBody in the Pinned-State.
+    /// </summary>
     public class IsPinnedState : IState
     {
         public void OnEnter(StateController controller)

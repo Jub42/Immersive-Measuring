@@ -2,8 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IReaction
+namespace Util
 {
-    void React();
-    void ResetReaction();
+    /// <summary>
+    /// Interface for a reaction.
+    /// </summary>
+    public interface IReaction
+    {
+        void React();
+        void ResetReaction();
+    }
 }
+

@@ -3,40 +3,47 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GrabObserver : MonoBehaviour
+namespace Util
 {
-    public BasicGrabbable grabbable;
-
-    [SerializeField]
-    public bool grabbed = false;
-
-    [SerializeField]
-    Material mat;
-    Material baseMaterial;
-
-    [SerializeField]
-    GameObject handle;
-
-    // Start is called before the first frame update
-    void Start()
+    /// <summary>
+    /// This class changes the material of the selected object, if it is grabbed.
+    /// </summary>
+    public class GrabObserver : MonoBehaviour
     {
-        baseMaterial = handle.GetComponent<MeshRenderer>().material;
-        grabbable = GetComponent<BasicGrabbable>();
-    }
+        public BasicGrabbable grabbable;
 
-    // Update is called once per frame
-    void Update()
-    {
-        grabbed = grabbable.isGrabbed;
+        [SerializeField]
+        public bool grabbed = false;
 
-        if (grabbed)
+        [SerializeField]
+        Material mat;
+        Material baseMaterial;
+
+        [SerializeField]
+        GameObject handle;
+
+        // Start is called before the first frame update
+        void Start()
         {
-            handle.GetComponent<MeshRenderer>().material = mat;
-        }
-        else
-        {
-            handle.GetComponent<MeshRenderer>().material = baseMaterial;
+            baseMaterial = handle.GetComponent<MeshRenderer>().material;
+            grabbable = GetComponent<BasicGrabbable>();
         }
 
+        // Update is called once per frame
+        void Update()
+        {
+            grabbed = grabbable.isGrabbed;
+
+            if (grabbed)
+            {
+                handle.GetComponent<MeshRenderer>().material = mat;
+            }
+            else
+            {
+                handle.GetComponent<MeshRenderer>().material = baseMaterial;
+            }
+
+        }
     }
+
 }

@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace StateMachine
 {
+    /// <summary>
+    /// Handles the RigidBody in the Default-State.
+    /// </summary>
     public class IsDefaultState : IState
     {
         public void OnEnter(StateController controller)

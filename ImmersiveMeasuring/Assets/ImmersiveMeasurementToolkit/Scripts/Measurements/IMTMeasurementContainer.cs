@@ -6,6 +6,9 @@ using UnityEngine;
 
 namespace Measurements
 {
+    /// <summary>
+    /// A class to manage a measurement.
+    /// </summary>
     public class IMTMeasurementContainer : MonoBehaviour
     {
         Measurement measurement = new EmptyMeasurement();
@@ -60,6 +63,7 @@ namespace Measurements
             }
         }
 
+        // Not in use.
         public void GetRenderData()
         {
 

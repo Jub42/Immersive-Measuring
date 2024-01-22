@@ -4,10 +4,11 @@ using IMTEventSystem;
 
 namespace Util
 {
+    /// <summary>
+    /// The IMTGrid manages the placement of the selected GridItems.
+    /// </summary>
     public class IMTGrid : MonoBehaviour, IMTObjectPooler
     {
-        //height
-        // width etc.
         [Header("Grid Settings")]
         [SerializeField]
         int maxRows;

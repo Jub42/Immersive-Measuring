@@ -1,3 +1,6 @@
 using MeasurementUtility;
 
-public class MeasurementGameEventListener : GameEventListenerGeneric<Measurement> { }
+namespace IMTEventSystem
+{
+    public class MeasurementGameEventListener : GameEventListenerGeneric<Measurement> { }
+}

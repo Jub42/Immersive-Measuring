@@ -2,24 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class GameEventGeneric<T> : ScriptableObject
+namespace IMTEventSystem
 {
-    List<GameEventListenerGeneric<T>> listeners = new List<GameEventListenerGeneric<T>>();
-
-    public void TriggerEvent(T t)
+    /// <summary>
+    /// Same as GameEvent.cs just with a generic parameter.
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    public abstract class GameEventGeneric<T> : ScriptableObject
     {
-        for (int i = 0; i < listeners.Count; i++)
+        List<GameEventListenerGeneric<T>> listeners = new List<GameEventListenerGeneric<T>>();
+
+        public void TriggerEvent(T t)
         {
-            listeners[i].OnEventTriggered(t);
+            for (int i = 0; i < listeners.Count; i++)
+            {
+                listeners[i].OnEventTriggered(t);
+            }
         }
-    }
 
-    public void AddListener(GameEventListenerGeneric<T> listener)
-    {
-        listeners.Add(listener);
-    }
-    public void RemoveListener(GameEventListenerGeneric<T> listener)
-    {
-        listeners.Remove(listener);
+        public void AddListener(GameEventListenerGeneric<T> listener)
+        {
+            listeners.Add(listener);
+        }
+        public void RemoveListener(GameEventListenerGeneric<T> listener)
+        {
+            listeners.Remove(listener);
+        }
     }
 }

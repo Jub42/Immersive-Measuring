@@ -7,6 +7,11 @@ using Measurements;
 
 namespace DataCube
 {
+    /// <summary>
+    /// This class handles the positioning of the display transform and
+    /// updates the corresponding text. Ment to use in combination with the
+    /// HoverEventHandler from VIU.
+    /// </summary>
     [RequireComponent(typeof(IMTMeasurementContainer))]
     public class IMTDisplay : MonoBehaviour
     {

@@ -5,6 +5,9 @@ using UnityEngine;
 
 namespace Util
 {
+    /// <summary>
+    /// This class creates a DataCube and adds it to an IMTObjectPooler. 
+    /// </summary>
     public class IMTSpawner : MonoBehaviour
     {
         [SerializeField]

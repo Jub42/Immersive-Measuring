@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace IMTEventSystem
 {
+    /// <summary>
+    /// This class represents a GameEvent.
+    /// </summary>
     [CreateAssetMenu(menuName = "Events/Game Event")]
     public class GameEvent : ScriptableObject
     {

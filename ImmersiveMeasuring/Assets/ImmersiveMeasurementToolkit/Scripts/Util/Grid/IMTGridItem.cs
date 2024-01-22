@@ -5,8 +5,9 @@ using Util;
 
 namespace Util
 {
-    // OnChange Event für Renderer?
-
+    /// <summary>
+    /// The IMTGridItem is a container for GaneObjects and handles their positioning.
+    /// </summary>
     [RequireComponent(typeof(BoxCollider))]
     public class IMTGridItem : MonoBehaviour
     {
@@ -94,11 +95,9 @@ namespace Util
         }
         public GameObject GetContent() { return content; }
 
-        // replace with timer + event 
+        // Idea: replace with timer and event 
         private void OnTriggerStay(Collider other)
         {
-            //Outline/ hover
-            //ResetReaction content positionItem
             if (other.CompareTag("Player"))
             {
                 ResetContentPosition() ;

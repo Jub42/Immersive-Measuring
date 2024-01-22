@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// A POC for the usage of the DataStorage.cs.
+/// </summary>
 public class DataStorageTest : MonoBehaviour
 {
     [SerializeField]

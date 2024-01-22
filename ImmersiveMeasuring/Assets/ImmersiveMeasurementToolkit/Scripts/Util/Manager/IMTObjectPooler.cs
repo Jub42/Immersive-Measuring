@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Util
 {
     /// <summary>
-    /// Pooler.
+    /// Interface for a Pooler.
     /// </summary>
     public interface IMTObjectPooler
     {

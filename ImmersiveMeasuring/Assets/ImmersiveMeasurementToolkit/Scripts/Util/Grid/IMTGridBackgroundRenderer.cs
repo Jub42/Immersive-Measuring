@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace Util
 {
+    /// <summary>
+    /// Renders a Square in order to indicate the position and size of a GridItem.
+    /// </summary>
     public class IMTGridBackgroundRenderer : MonoBehaviour
     {
         Mesh mesh;
@@ -33,7 +36,6 @@ namespace Util
 
             mesh.Clear();
 
-            // Two Triangles
             Vector3 upperLeft = offset + (Vector3.left * width / 2f) + (Vector3.up * height / 2f);
             Vector3 upperRight = offset + (Vector3.right * width / 2f) + (Vector3.up * height / 2f);
             Vector3 lowerLeft = offset + (Vector3.left * width / 2f) + (Vector3.down * height / 2f);
@@ -48,6 +50,7 @@ namespace Util
                 uvs[i] = new Vector2(mesh.vertices[i].x, mesh.vertices[i].z);
             }
             mesh.uv = uvs;
+            // Two Triangles
             mesh.triangles = new int[] { 0, 3, 1, 0, 2, 3 };
             renderer.material = material;
         }

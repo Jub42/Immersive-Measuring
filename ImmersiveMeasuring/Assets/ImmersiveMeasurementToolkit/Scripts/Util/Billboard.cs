@@ -2,10 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Billboard : MonoBehaviour
+namespace Util
 {
-    void Update()
+    /// <summary>
+    /// This script aligns an object towards the main camera.
+    /// </summary>
+    public class Billboard : MonoBehaviour
     {
-        transform.LookAt(Camera.main.transform.position);
+        void Update()
+        {
+            transform.LookAt(Camera.main.transform.position);
+        }
     }
 }
+
+

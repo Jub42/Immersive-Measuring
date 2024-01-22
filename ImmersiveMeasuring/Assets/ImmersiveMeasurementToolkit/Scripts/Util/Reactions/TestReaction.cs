@@ -2,18 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TestReaction : MonoBehaviour, IReaction
+namespace Util
 {
-    [SerializeField]
-    Transform t;
-
-    public void React()
+    /// <summary>
+    /// Reaction POC.
+    /// </summary>
+    public class TestReaction : MonoBehaviour, IReaction
     {
-        t.gameObject.SetActive(true);
+        [SerializeField]
+        Transform t;
+
+        public void React()
+        {
+            t.gameObject.SetActive(true);
+        }
+
+        public void ResetReaction()
+        {
+            t.gameObject.SetActive(false);
+        }
     }
 
-    public void ResetReaction()
-    {
-        t.gameObject.SetActive(false);
-    }
 }

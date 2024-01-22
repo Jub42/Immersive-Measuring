@@ -6,6 +6,9 @@ using IMTEventSystem;
 
 namespace Util
 {
+    /// <summary>
+    /// Destroys a DataCube on collision.
+    /// </summary>
     [RequireComponent(typeof (BoxCollider))]
     public class IMTRemoveDataCube : MonoBehaviour
     {
@@ -14,7 +17,7 @@ namespace Util
 
         private void OnTriggerEnter(Collider other)
         {
-            if(other.GetComponent<DataCube.IMTDataCube>() != null)
+            if(other.GetComponent<IMTDataCube>() != null)
             {
                 Destroy(other.gameObject);
                 onGridChange.TriggerEvent();

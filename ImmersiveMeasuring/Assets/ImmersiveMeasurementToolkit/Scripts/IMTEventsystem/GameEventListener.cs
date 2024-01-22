@@ -6,9 +6,14 @@ using UnityEngine.Events;
 
 namespace IMTEventSystem
 {
+    /// <summary>
+    /// GameEventListener for the GameEvent.
+    /// </summary>
     public class GameEventListener : MonoBehaviour
     {
+        // The GameEvent to listen for.
         public GameEvent gameEvent;
+        // An UnityEvent in order to select a function as reaction in the inspector.
         public UnityEvent onEventTriggered;
 
         void OnEnable()

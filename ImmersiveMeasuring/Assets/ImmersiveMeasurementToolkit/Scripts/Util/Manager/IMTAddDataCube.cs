@@ -6,6 +6,9 @@ using IMTEventSystem;
 
 namespace Util
 {
+    /// <summary>
+    /// Adjusts the State of an IMTDataCube.
+    /// </summary>
     [RequireComponent(typeof (BoxCollider))]
     public class IMTAddDataCube : MonoBehaviour
     {
@@ -14,7 +17,7 @@ namespace Util
 
         private void OnTriggerEnter(Collider other)
         {
-            DataCube.IMTDataCube dc = other.GetComponent<DataCube.IMTDataCube>();
+            IMTDataCube dc = other.GetComponent<IMTDataCube>();
             if (dc != null)
             {
                 dc.SetPinned();

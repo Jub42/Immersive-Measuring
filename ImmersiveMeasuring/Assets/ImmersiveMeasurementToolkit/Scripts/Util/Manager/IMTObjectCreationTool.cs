@@ -1,38 +1,44 @@
 using MeasurementUtility;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Measurements;
 
-public static class IMTObjectCreationTool
+namespace Util
 {
-    public static bool InstantiateMeasurementOnGameObj(Measurement measurement, ref GameObject prefab)
+    /// <summary>
+    /// This class provides methods for the handling of Measurements in DataCubes.
+    /// </summary>
+    public static class IMTObjectCreationTool
     {
-        if (prefab.GetComponent<IMTMeasurementContainer>().SetMeasurement(measurement))
+        public static bool InstantiateMeasurementOnGameObj(Measurement measurement, ref GameObject prefab)
         {
-            return true;
+            if (prefab.GetComponent<IMTMeasurementContainer>().SetMeasurement(measurement))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
-        else
+
+        // change to ref?
+        public static bool ExtractMeasurementData(GameObject dataCube, out Measurement measurement)
         {
-            return false;
+            if (dataCube.gameObject.GetComponent<IMTMeasurementContainer>() != null)
+            {
+                dataCube.gameObject.GetComponent<IMTMeasurementContainer>().GetMeasurement(out measurement);
+                return true;
+            }
+            else
+            {
+                measurement = new EmptyMeasurement();
+                return false;
+            }
         }
+
+        //public static bool CreateEmptyGameObject(out GameObject obj)
+
     }
-
-    // change to ref?
-    public static bool ExtractMeasurementData(GameObject dataCube, out Measurement measurement)
-    {
-        if (dataCube.gameObject.GetComponent<IMTMeasurementContainer>() != null)
-        {
-            dataCube.gameObject.GetComponent<IMTMeasurementContainer>().GetMeasurement(out measurement);
-            return true;
-        }
-        else
-        {
-            measurement = new EmptyMeasurement();
-            return false;
-        }
-    }
-
-    //public static bool CreateEmptyGameObject(out GameObject obj)
-
 }
+
+

@@ -5,6 +5,9 @@ using UnityEngine.Events;
 
 namespace IMTEventSystem
 {
+    /// <summary>
+    /// Similar to GameEventListenerGeneric. Not in use!
+    /// </summary>
     public class ObjectGameEventListener : MonoBehaviour
     {
         public ObjectGameEvent gameEvent;

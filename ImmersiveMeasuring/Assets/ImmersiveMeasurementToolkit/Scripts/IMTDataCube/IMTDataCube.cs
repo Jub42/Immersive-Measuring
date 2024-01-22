@@ -8,6 +8,9 @@ using Util;
 
 namespace DataCube
 {
+    /// <summary>
+    /// The Statemachine for the IMTDataCube.
+    /// </summary>
     [RequireComponent(typeof(BoxCollider))]
     [RequireComponent(typeof(Rigidbody))]
     public class IMTDataCube : StateController

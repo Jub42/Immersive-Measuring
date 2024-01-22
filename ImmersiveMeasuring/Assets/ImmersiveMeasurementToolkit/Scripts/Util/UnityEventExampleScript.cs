@@ -2,10 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UnityEventExampleScript : MonoBehaviour
+namespace Util
 {
-    public void DoSmth()
+    // Example script for the use of UnityEvents in the Inspector.
+    public class UnityEventExampleScript : MonoBehaviour
     {
-        Debug.Log("Something!");
+        public void DoSmth()
+        {
+            Debug.Log("Something!");
+        }
     }
 }
+
+

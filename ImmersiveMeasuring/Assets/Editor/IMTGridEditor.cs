@@ -5,6 +5,9 @@ using UnityEngine;
 
 namespace Util
 {
+    /// <summary>
+    /// This class adds a button to the Inspector UI, in order to update the grid.
+    /// </summary>
     [CustomEditor(typeof(IMTGrid))]
     public class IMTGridEditor : Editor
     {

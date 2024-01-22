@@ -5,21 +5,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public abstract class GameEventListenerGeneric<T> : MonoBehaviour
+namespace IMTEventSystem
 {
-    public GameEventGeneric<T> gameEvent;
-    public UnityEvent<T> onEventTriggered;
+    //Similar to GameEventListener just with a generic parameter.
+    public abstract class GameEventListenerGeneric<T> : MonoBehaviour
+    {
+        public GameEventGeneric<T> gameEvent;
+        public UnityEvent<T> onEventTriggered;
 
-    void OnEnable()
-    {
-        gameEvent.AddListener(this);
-    }
-    void OnDisable()
-    {
-        gameEvent.RemoveListener(this);
-    }
-    public void OnEventTriggered(T t)
-    {
-        onEventTriggered?.Invoke(t);
+        void OnEnable()
+        {
+            gameEvent.AddListener(this);
+        }
+        void OnDisable()
+        {
+            gameEvent.RemoveListener(this);
+        }
+        public void OnEventTriggered(T t)
+        {
+            onEventTriggered?.Invoke(t);
+        }
     }
 }

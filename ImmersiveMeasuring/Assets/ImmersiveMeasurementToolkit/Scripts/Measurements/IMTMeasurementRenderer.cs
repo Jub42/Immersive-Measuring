@@ -8,7 +8,8 @@ using Util;
 namespace Measurements
 {
     /// <summary>
-    /// get IMeasurementVisualization and render.
+    /// Selects an IMeasurementVisualization to set up for the corresponding 
+    /// IMTMeasurementContainer.
     /// </summary>
     [RequireComponent(typeof(IMTGridItem))]
     public class IMTMeasurementRenderer : MonoBehaviour, IHoverable
@@ -23,8 +24,10 @@ namespace Measurements
 
         [SerializeField]
         IMTLine line;
+        // Not in use! Serves as placeholder for the corresponding arc script.
         [SerializeField]
         GameObject arc;
+        // Not in use! Serves as placeholder for the corresponding area script.
         [SerializeField]
         GameObject area;
 

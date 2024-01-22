@@ -3,7 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class UnityEventExample : MonoBehaviour
+namespace Util
 {
-    public UnityEvent OnEvent;
+    // Example script for the use of UnityEvents in the Inspector.
+    public class UnityEventExample : MonoBehaviour
+    {
+        public UnityEvent OnEvent;
+    }
 }
+

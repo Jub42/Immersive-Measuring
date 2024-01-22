@@ -4,6 +4,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using Measurements;
 
+/// <summary>
+/// A script for the DataCube prefab in order to initialize it without a
+/// Tool.
+/// </summary>
+[RequireComponent(typeof(IMTMeasurementContainer))]
 public class IMTDummyCube : MonoBehaviour
 {
     Distance d;
