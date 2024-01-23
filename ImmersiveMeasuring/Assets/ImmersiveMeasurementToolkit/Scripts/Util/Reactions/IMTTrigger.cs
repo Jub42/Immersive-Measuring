@@ -25,6 +25,7 @@ namespace Util
         {
             get { return isExited; }
         }
+
         private void OnTriggerEnter(Collider other)
         {
             if (other.CompareTag("Player"))
